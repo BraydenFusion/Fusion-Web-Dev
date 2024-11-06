@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign up | Fusion AI</title>
+    <title>Sign up - Fusion AI</title>
     <style>
         * {
             margin: 0;
@@ -244,7 +244,7 @@
     <nav class="nav-container">
         <div class="nav-links">
             <div class="nav-item">
-                <a href="index.html">Home</a>
+                <a href="Home.html">Home</a>
             </div>
             <div class="nav-item">
                 <a href="pricing.html">Pricing</a>
@@ -283,7 +283,7 @@
 <body>
     <div class="signup-container">
         <h2>Signup</h2>
-        <form action="/signup" method="POST">
+        <form id="signup-form">
             <input type="hidden" name="_csrf" value="YOUR CSRF_TOKEN">
             
             <label for="name">Name</label>
@@ -301,6 +301,17 @@
             <button type="submit">Signup</button>
         </form>
         
+        <script>
+            document.getElementById('signup-form').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent default submission
+            
+                // Optional: Validate user input here
+            
+                // Redirect the user to the desired page
+                window.location.href = 'Coming-Soon.html'; // Replace 'welcome.html' with your target page
+            });
+        </script>
+
         <div class="divider">or</div>
         
         <button class="google-signup" onclick="handleGoogleSignup()">
@@ -312,7 +323,7 @@
     </div>
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script src="script.js"></script>
+</body>
 
 <style>
 
@@ -341,7 +352,7 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         text-align: center;
         margin-top: 150px;
-        margin-bottom: 50px;
+        margin-bottom: 80px;
     }
     
     h2 {
@@ -481,261 +492,6 @@ function handleCredentialResponse(response) {
         document.body.appendChild(VG_SCRIPT);
     })()
 </script>
-
-<!-- Update footer links -->
-<footer>
-    <div class="footer-container">
-        <div class="footer-section">
-            <h4>Company</h4>
-            <ul class="footer-links">
-                <li><a href="terms-of-service.html">Terms of Service</a></li>
-                <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                <li><a href="about-us.html">About Us</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-section">
-            <h4>Resources</h4>
-            <ul class="footer-links">
-                <li><a href="case-studies.html">Case Studies</a></li>
-                <li><a href="blogs.html">Blog</a></li>
-                <li><a href="documentation.html">Documentation</a></li>
-                <li><a href="guides.html">Guides</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-section">
-            <h4>Connect</h4>
-            <ul class="footer-links">
-                <li><a href="https://x.com/Fusion_Term" target="_blank">X</a></li>
-                <li><a href="https://linkedin.com/in/brayden-jones-2947832a7" target="_blank">LinkedIn</a></li>
-                <li><a href="https://www.youtube.com/@AI.W.Fusion" target="_blank">YouTube</a></li>
-                <li><a href="https://discord.gg/JkfehrMkY3" target="_blank">Discord</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-section">
-            <h4>Contact Us</h4>
-            <div class="contact-info">
-                <p>Email: support@fusionai.com</p>
-                <p>Phone: +123-456-7890</p>
-            </div>
-            <!-- Footer Newsletter Signup -->
-            <div class="newsletter-section">
-                <h4>Stay Updated</h4>
-                <form id="newsletter-form">
-                    <input type="email" name="email" placeholder="Enter your email" required>
-                    <button type="submit">Sign Up</button>
-                </form>
-            </div>
-        </div>
-    </div>
-    <script>
-        document.getElementById('newsletter-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const form = event.target;
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
-    
-            fetch('http://localhost:3000/signup', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.text())
-            .then(result => {
-                alert(result);
-                form.reset();
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Oops! There was a problem signing up.');
-            });
-        });
-    </script>
-</footer>
-
-<style>
-
-.newsletter-section h4 {
-    margin-bottom: 1rem;
-    color: #ffffff;
-}
-
-.newsletter-section form {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.newsletter-section input {
-    padding: 0.75rem 1rem;
-    border: 1px solid #0062ff;
-    border-radius: 8px;
-    flex: 1;
-    background: #1b1c1c;
-    color: #ffffff; /* Set the text color to white */
-}
-
-.newsletter-section button {
-    padding: 0.75rem 1.5rem;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    width: 120px; /* Set a fixed width */
-    height: 45px; /* Set a fixed height */
-    font-size: 1rem; /* Adjust font size */
-    text-align: center; /* Center the text */
-}
-
-.newsletter-section button:hover {
-    background: #0056b3;
-}
-
-footer {
-    background-color: #1a1a1a;
-    color: white;
-    padding: 5rem 0;
-    margin-top: 4rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4rem;
-    padding: 0 2rem;
-}
-
-.footer-section {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.footer-section h4 {
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    position: relative;
-    padding-bottom: 0.75rem;
-}
-
-.footer-section h4:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 30px;
-    height: 2px;
-    background: #007bff;
-}
-
-.footer-links {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-links li {
-    margin-bottom: 1rem;
-}
-
-.footer-links a {
-    color: #999;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    font-size: 0.95rem;
-    display: inline-block;
-}
-
-.footer-links a:hover {
-    color: #fff;
-    transform: translateX(5px);
-}
-
-.contact-info p {
-    color: #999;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
-}
-
-.newsletter {
-    margin-top: 2rem;
-}
-
-.newsletter-form {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.newsletter-form input {
-    flex: 1;
-    padding: 0.875rem 1.25rem;
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 8px;
-    background: rgba(255,255,255,0.05);
-    color: #fff;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-}
-
-.newsletter-form input::placeholder {
-    color: rgba(255,255,255,0.5);
-}
-
-.newsletter-form input:focus {
-    outline: none;
-    border-color: #007bff;
-    background: rgba(255,255,255,0.1);
-}
-
-.newsletter-form button {
-    padding: 0.875rem 1.5rem;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.newsletter-form button:hover {
-    background: #0056b3;
-    transform: translateY(-2px);
-}
-
-@media (max-width: 768px) {
-    .footer-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 3rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .footer-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .newsletter-form {
-        flex-direction: column;
-    }
-    
-    .newsletter-form button {
-        width: 100%;
-    }
-}
-</style>
 
 </body>
 </html>
