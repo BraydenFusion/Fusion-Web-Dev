@@ -1,0 +1,10 @@
+frontend:
+    path: .
+    publish: build
+    scripts:
+        deploy:
+            - npm install --legacy-peer-deps
+    subdomain: Fusion-Web-Dev-Dashboard
+name: Fusion-Web-Dev-Dashboard
+region: us-east-1
+yamlVersion: 2
