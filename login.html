@@ -292,29 +292,57 @@
             
             <button type="submit">Login</button>
         </form>
-        
-        <div class="divider">or</div>
-        
-        <button class="google-signup" onclick="handleGoogleLogin()">
-            <img src="https://cdn4.iconfinder.com/data/icons/logos-brands-7/512/google_logo-google_icongoogle-512.png" alt="Google logo">
-            Login with Google
-        </button>
 
         <p class="signup-link">Don’t have an account? <a href="signup.html">Sign up</a></p>
     </div>
 
     <script>
-        document.getElementById('login-form').addEventListener('submit', function(event) {
-                event.preventDefault(); // Prevent default submission
-            
-                // Optional: Validate user input here
-            
-                // Redirect the user to the desired page
-                window.location.href = 'Coming-Soon.html'; // Replace 'welcome.html' with your target page
-            });
+        // Handle Login Form Submission with Debugging
+        document.getElementById('login-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+    
+            const emailField = document.getElementById('username');
+            const passwordField = document.getElementById('password');
+    
+            if (!emailField || !passwordField) {
+                console.error("Username or password field not found.");
+                alert("Error: Username or password field is missing.");
+                return;
+            }
+    
+            const email = emailField.value;
+            const password = passwordField.value;
+    
+            console.log("Submitting login form with email:", email);
+    
+            try {
+                const response = await fetch('/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+    
+                const result = await response.json();
+    
+                if (response.status === 404) {
+                    alert("User not found. Please sign up.");
+                    window.location.href = 'signup.html';
+                } else if (response.status === 401) {
+                    alert("Incorrect password. Please try again.");
+                } else if (response.ok) {
+                    localStorage.setItem('token', result.token);
+                    alert("Login successful!");
+                    window.location.href = 'dashboard.html';
+                } else {
+                    alert("An error occurred. Please try again later.");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Failed to connect. Please check your network and try again.");
+            }
+        });
     </script>
 </body>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
 
 <style>
 /* Reset some default styling */
@@ -431,21 +459,6 @@
     }
 
     </style>
-<script>
-function handleGoogleLogin() {
-    google.accounts.id.initialize({
-        client_id: "YOUR_GOOGLE_CLIENT_ID",
-        callback: handleCredentialResponse
-    });
-    google.accounts.id.prompt(); // Show the Google Sign-In popup
-}
-
-function handleCredentialResponse(response) {
-    console.log("Encoded JWT ID token: " + response.credential);
-    // Send response.credential to your backend to validate and log in the user
-}
-</script>
-
 <div style="width: 0; height: 0;" id="VG_OVERLAY_CONTAINER">
     <!-- Here is where TIXAE Agents renders the widget. -->
     <!-- Set render to 'full-width' then adjust the width and height to 500px (for example) to render the chatbot itself without the popup. -->

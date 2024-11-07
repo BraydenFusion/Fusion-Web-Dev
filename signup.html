@@ -302,27 +302,48 @@
         </form>
         
         <script>
-            document.getElementById('signup-form').addEventListener('submit', function(event) {
-                event.preventDefault(); // Prevent default submission
-            
-                // Optional: Validate user input here
-            
-                // Redirect the user to the desired page
-                window.location.href = 'Coming-Soon.html'; // Replace 'welcome.html' with your target page
+            document.getElementById('signup-form').addEventListener('submit', async (event) => {
+                event.preventDefault();
+        
+                const emailField = document.getElementById('email');
+                const passwordField = document.getElementById('password');
+        
+                const email = emailField.value.trim();
+                const password = passwordField.value.trim();
+        
+                if (!email || !password) {
+                    alert("Please fill in all fields.");
+                    return;
+                }
+        
+                try {
+                    const response = await fetch('/signup', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email, password })
+                    });
+        
+                    const result = await response.json();
+        
+                    if (response.status === 409) {
+                        alert(result.message || "You already have an account. Please log in.");
+                        window.location.href = '/login.html';
+                    } else if (response.ok) {
+                        alert(result.message || "Signup successful!");
+                        window.location.href = '/login.html';
+                    } else {
+                        alert(result.message || "Signup failed. Please try again later.");
+                    }
+                } catch (error) {
+                    console.error("Error:", error);
+                    alert("An error occurred while signing up. Please try again later.");
+                }
             });
         </script>
-
-        <div class="divider">or</div>
-        
-        <button class="google-signup" onclick="handleGoogleSignup()">
-            <img src="https://cdn4.iconfinder.com/data/icons/logos-brands-7/512/google_logo-google_icongoogle-512.png" alt="Google logo">
-            Signup with Google
-        </button>
         
         <p class="login-link">Don’t have an account? <a href="login.html">Login</a></p>
     </div>
 
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </body>
 
 <style>
