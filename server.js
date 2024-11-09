@@ -1,166 +1,319 @@
+// Load environment variables from .env file
+require('dotenv').config();
+
+// Import Dependencies
 const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-require('dotenv').config(); // Loads .env file
-
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-// Middleware
-app.use(express.json()); // Parse JSON bodies
-
-// MongoDB Connection
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('MongoDB connected'))
-    .catch(error => console.error('MongoDB connection error:', error));
-
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
-
+const path = require('path');
+const cookieParser = require('cookie-parser'); // For parsing cookies
+const cors = require('cors'); // Enable CORS
+const rateLimit = require('express-rate-limit'); // Rate limiting
+const helmet = require('helmet'); // Security headers
+const morgan = require('morgan'); // HTTP request logging
+const crypto = require('crypto');
+const nodemailer = require('nodemailer');
+const session = require('express-session');
+const { body, validationResult } = require('express-validator');
 const User = require('./models/User');
 
-app.post('/signup', async (req, res) => {
-    try {
-        const { email, password } = req.body;
+// Initialize Express App
+const app = express();
 
-        // Check if user already exists
-        const existingUser = await User.findOne({ email });
+// 1. Body Parsing Middleware
+app.use(express.json()); // Parse JSON bodies
+app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
+
+// 2. Other Middleware
+app.use(cookieParser()); // Parse cookies
+app.use(cors({
+    origin: 'http://localhost:3000', // Adjust based on your frontend's URL
+    methods: ['GET', 'POST'],
+    credentials: true
+}));
+
+// 3. Session Middleware
+app.use(session({
+    secret: process.env.SESSION_SECRET || 'your-very-secure-secret', // Use a strong secret in .env
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 4 * 60 * 60 * 1000, // 4 hours
+        secure: process.env.NODE_ENV === 'production', // Set to true in production
+        httpOnly: true,
+        sameSite: 'lax',
+    }
+}));
+
+// 4. Security Middleware
+app.use(helmet());
+
+// 5. Logging Middleware
+app.use(morgan('dev'));
+
+// 6. Rate Limiting Middleware
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100 // Limit each IP to 100 requests per windowMs
+});
+app.use(limiter);
+
+// Serve Static Files
+app.use(express.static(path.join(__dirname, 'public')));
+
+// 3. Session Management Middleware
+app.use(session({
+    secret: process.env.SESSION_SECRET || 'your-secret-key',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 4 * 60 * 60 * 1000, // 4 hours
+        secure: process.env.NODE_ENV === 'production', // Set to true in production
+        httpOnly: true,
+        sameSite: 'lax',
+    }
+}));
+
+// 4. Configure Nodemailer
+const transporter = nodemailer.createTransport({
+    service: 'Gmail', // Use your email service
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+    },
+});
+
+// 5. Authentication Middleware
+function isAuthenticated(req, res, next) {
+    if (req.session.user && req.session.user.isVerified) {
+        return next();
+    }
+    res.status(401).json({ message: 'Unauthorized. Please log in.' });
+}
+
+// 6. Serve HTML Files via Routes
+
+// Root Route - Redirect to signup.html
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'signup.html'));
+});
+
+// Serve Sign-Up Page
+app.get('/signup.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'signup.html'));
+});
+
+// Serve Login Page
+app.get('/login.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'login.html'));
+});
+
+// Serve Verification Page
+app.get('/verify.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'verify.html'));
+});
+
+// Serve Verification Failed Page
+app.get('/verification-failed.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'verification-failed.html'));
+});
+
+// Serve Dashboard Page - Protected Route
+app.get('/dashboard.html', isAuthenticated, (req, res) => {
+    res.sendFile(path.join(__dirname, 'dashboard.html'));
+});
+
+// 7. Serve Static Assets from Root and Subdirectories
+app.use('/css', express.static(path.join(__dirname, 'css')));
+app.use('/js', express.static(path.join(__dirname, 'js')));
+app.use('/images', express.static(path.join(__dirname, 'images')));
+
+// 8. Rate Limiting for Sign-Up Route
+const signupLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 10, // limit each IP to 10 sign-up requests per windowMs
+    message: 'Too many accounts created from this IP, please try again after 15 minutes'
+});
+
+// 9. Sign-Up Route with Validation
+app.post('/signup', [
+    body('email').isEmail().withMessage('Enter a valid email address'),
+    body('username').isLength({ min: 3 }).withMessage('Username must be at least 3 characters long'),
+    body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters long'),
+    body('confirmPassword').custom((value, { req }) => {
+        if (value !== req.body.password) {
+            throw new Error('Passwords do not match');
+        }
+        return true;
+    })
+], async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ message: errors.array()[0].msg });
+    }
+
+    const { email, username, password } = req.body;
+
+    try {
+        // Check if user exists
+        const existingUser = await User.findOne({ $or: [{ email }, { username }] });
         if (existingUser) {
-            return res.status(400).json({ message: 'User already exists. Please log in instead.' });
+            return res.status(400).json({ message: 'Email or Username already exists.' });
         }
 
         // Hash password
-        const hashedPassword = await bcrypt.hash(password, 10);
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
 
-        // Create and save new user
-        const newUser = new User({ email, password: hashedPassword });
+        // Create verification token
+        const verificationToken = crypto.randomBytes(32).toString('hex');
+        const verificationExpires = Date.now() + 4 * 60 * 60 * 1000; // 4 hours
+
+        // Create new user
+        const newUser = new User({
+            email,
+            username,
+            password: hashedPassword,
+            verificationToken,
+            verificationExpires,
+        });
+
         await newUser.save();
 
-        res.status(201).json({ message: 'User registered successfully. Please log in.' });
+        // Send verification email
+        const verificationLink = `http://localhost:${process.env.PORT}/verify-email?token=${verificationToken}&email=${email}`;
+        await transporter.sendMail({
+            from: `"Your App Name" <${process.env.EMAIL_USER}>`,
+            to: email,
+            subject: 'Verify Your Email',
+            html: `<p>Thank you for signing up! Please verify your email by clicking the link below:</p>
+                   <a href="${verificationLink}">Verify Email</a>`,
+        });
+
+        res.status(200).json({ message: 'Signup successful! Please check your email to verify.' });
     } catch (error) {
-        res.status(500).json({ message: 'Error registering user', error });
+        console.error('Sign-Up Error:', error);
+        res.status(500).json({ message: 'Error signing up. Please try again.' });
     }
 });
 
-app.post('/login', async (req, res) => {
-    try {
-        const { email, password } = req.body;
+// 10. Email Verification Route
+app.get('/verify-email', async (req, res) => {
+    const { token, email } = req.query;
 
-        // Find user by email
-        const user = await User.findOne({ email });
+    if (!token || !email) {
+        return res.redirect('/verification-failed.html');
+    }
+
+    try {
+        const user = await User.findOne({
+            email,
+            verificationToken: token,
+            verificationExpires: { $gt: Date.now() },
+        });
+
         if (!user) {
-            return res.status(400).json({ message: 'User not found. Please sign up.' });
+            return res.redirect('/verification-failed.html');
         }
 
-        // Check if password matches
+        user.isVerified = true;
+        user.verificationToken = undefined;
+        user.verificationExpires = undefined;
+        await user.save();
+
+        // Update session
+        req.session.user = {
+            id: user._id,
+            email: user.email,
+            username: user.username,
+            isVerified: user.isVerified,
+        };
+
+        console.log('Email verified successfully for:', user.email); // Optional server-side logging
+
+        return res.redirect('/verify.html?status=success');
+    } catch (error) {
+        console.error('Email Verification Error:', error);
+        return res.redirect('/verification-failed.html');
+    }
+});
+
+// 11. Logout Route
+app.post('/logout', (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
+            console.error('Logout Error:', err);
+            return res.status(500).json({ message: 'Could not log out. Please try again.' });
+        }
+        res.clearCookie('connect.sid'); // Name may vary based on your session configuration
+        res.status(200).json({ message: 'Logout successful.' });
+    });
+});
+
+// 12. Login Route
+app.post('/login', [
+    body('email').isEmail().withMessage('Please enter a valid email.'),
+    body('password').notEmpty().withMessage('Password cannot be empty.')
+], async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        // Return validation errors
+        return res.status(400).json({ message: errors.array()[0].msg });
+    }
+
+    const { email, password } = req.body;
+
+    try {
+        const user = await User.findOne({ email });
+
+        if (!user) {
+            return res.status(400).json({ message: 'Invalid email or password.' });
+        }
+
         const isMatch = await bcrypt.compare(password, user.password);
+
         if (!isMatch) {
-            return res.status(400).json({ message: 'Incorrect password' });
+            return res.status(400).json({ message: 'Invalid email or password.' });
         }
 
-        // Generate JWT
-        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-        res.status(200).json({ message: 'Login successful', token });
-    } catch (error) {
-        res.status(500).json({ message: 'Error logging in', error });
-    }
-});
-
-const authenticate = (req, res, next) => {
-    const token = req.headers.authorization?.split(' ')[1];
-    if (!token) {
-        return res.status(401).json({ message: 'Unauthorized' });
-    }
-
-    try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        req.user = decoded;
-        next();
-    } catch (error) {
-        res.status(401).json({ message: 'Invalid token' });
-    }
-};
-
-app.get('/dashboard', authenticate, (req, res) => {
-    res.json({ message: `Welcome, user ${req.user.userId}` });
-});
-
-const express = require('express');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
-const User = require('./models/User'); // Assuming the User model is set up with Mongoose
-
-app.post('/login', async (req, res) => {
-    const { email, password } = req.body;
-
-    try {
-        // Check if the user exists
-        const user = await User.findOne({ email });
-        if (!user) {
-            return res.status(404).json({ message: "User not found. Please sign up." });
+        if (!user.isVerified) {
+            return res.status(403).json({ message: 'Please verify your email before logging in.' });
         }
 
-        // Check if the password matches
-        const isPasswordCorrect = await bcrypt.compare(password, user.password);
-        if (!isPasswordCorrect) {
-            return res.status(401).json({ message: "Incorrect password." });
-        }
+        // Update session
+        req.session.user = {
+            id: user._id,
+            email: user.email,
+            username: user.username,
+            isVerified: user.isVerified,
+        };
 
-        // Generate a token if successful
-        const token = jwt.sign({ id: user._id }, 'your_jwt_secret', { expiresIn: '1h' });
-        res.status(200).json({ token });
+        console.log('User logged in:', user.email); // Optional logging
+
+        return res.status(200).json({ message: 'Login successful.' });
     } catch (error) {
-        res.status(500).json({ message: "An error occurred. Please try again later." });
+        console.error('Login Error:', error);
+        return res.status(500).json({ message: 'Server error. Please try again later.' });
     }
 });
 
-app.post('/signup', async (req, res) => {
-    const { email, password } = req.body;
+// 13. Start Server and Connect to MongoDB
+const PORT = process.env.PORT || 3000;
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => {
+        console.log('Connected to MongoDB');
+        app.listen(PORT, () => {
+            console.log(`Server running on http://localhost:${PORT}`);
+        });
+    })
+    .catch(err => console.error('MongoDB connection error:', err));
 
-    if (!email || !password) {
-        return res.status(400).json({ message: "Email and password are required." });
-    }
-
-    try {
-        // Check if the user already exists
-        const existingUser = await User.findOne({ email });
-        if (existingUser) {
-            console.log("User already exists:", email);
-            return res.status(409).json({ message: "User already exists" });
-        }
-
-        // Hash the password
-        const hashedPassword = await bcrypt.hash(password, 10);
-
-        // Save the new user to the database
-        const newUser = new User({ email, password: hashedPassword });
-        await newUser.save();
-
-        console.log("User created successfully:", email);
-        return res.status(201).json({ message: "User created successfully" });
-    } catch (error) {
-        console.error("Error in signup process:", error);
-        return res.status(500).json({ message: "Internal server error" });
-    }
-});
-
-const mongoose = require('mongoose');
-
-const userSchema = new mongoose.Schema({
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true }
-});
-
-module.exports = mongoose.model('User', userSchema);
-
-mongoose.connect('mongodb://localhost:27017/yourDatabaseName', {
+// 8. MongoDB Connection
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
 }).then(() => {
-    console.log("Connected to MongoDB");
+    console.log('MongoDB connected');
 }).catch(err => {
-    console.error("MongoDB connection error:", err);
+    console.error('MongoDB connection error:', err);
 });
