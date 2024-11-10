@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+        }
+
+                /* Header Styles */
+                .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-item > a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.75rem 1.25rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-item > a:hover {
+            background-color: #f5f7fa;
+            color: #007bff;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 1rem;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+
+            .nav-item > a {
+                padding: 0.5rem 1rem;
+                display: block;
+                width: 100%;
+            }
+            
+            .nav-item > a:hover {
+                background-color: #f5f7fa;
+            }
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            min-width: 480px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            padding: 2rem;
+            z-index: 1000;
+            margin-top: 1rem;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .dropdown-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .dropdown-content {
+            padding: 0.5rem 0;
+        }
+
+        .dropdown-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .dropdown-description {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .dropdown-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .dropdown-links a {
+            color: #2b2b2b;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-links a:hover {
+            background-color: #f5f7fa;
+            color: #007bff;
+            transform: translateX(4px);
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            width: 600px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            padding: 1.5rem;
+            z-index: 1000;
+            margin-top: 1rem;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .dropdown-content {
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-content:hover {
+            background: #f1f3f5;
+        }
+
+        .dropdown-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .dropdown-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .dropdown-links li a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0.75rem;
+            color: #444;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .dropdown-links li a:hover {
+            background: white;
+            color: #007bff;
+            transform: translateX(4px);
+        }
+
+        .TIXAE-Agent {
+            padding-top: 130px;
+            max-width: 500px;
+            max-height: 600;
+            margin: 0 auto;
+            }
+</style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">             
+            <div class="nav-links">
+                <div class="nav-item">
+                    <a href="index.html">Home</a>
+                </div>
+                <div class="nav-item">
+                    <a href="/pricing/">Pricing</a>
+                </div>
+                <div class="nav-item">
+                    <a href="/resources/">Resources</a>
+                    <div class="dropdown">
+                        <div class="dropdown-grid">
+                            <div class="dropdown-content">
+                                <h3>🌟 Featured Resources</h3>
+                                <p>Discover our most popular guides and tutorials to help you succeed.</p>
+                                <ul class="dropdown-links">
+                                    <li><a href="/guide/"><span>📚</span>Complete Guides</a></li>
+                                    <li><a href="/tutorials/"><span>🎥</span>Video Tutorials</a></li>
+                                    <li><a href="/case-studies/"><span>📊</span>Case Studies</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown-content">
+                                <h3>📱 Learning Center</h3>
+                                <ul class="dropdown-links">
+                                    <li><a href="/documentation/"><span>📄</span>Documentation</a></li>
+                                    <li><a href="/blogs/"><span>📰</span>Blog Articles</a></li>
+                                    <li><a href="/community/"><span>👥</span>Community Forum</a></li>
+                                    <li><a href="/support/"><span>❓</span>FAQs</a></li>
+                                    <li><a href="/sources/"><span>💻</span>Sources</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="/contact/">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header> 
+
+<div class="TIXAE-Agent">
+<iframe
+    src="https://tixaeagents.ai/app/eu/render/NzcljJJgdNozZiv/iframe"
+    style="width: 100%; height: 100vh;"
+    frameborder="0">
+</iframe>
+
+</div>
+<!-- Update footer links -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>Company</h4>
+            <ul class="footer-links">
+                <li><a href="/terms of service/">Terms of Service</a></li>
+                <li><a href="/privacy policy/">Privacy Policy</a></li>
+                <li><a href="/about/">About Us</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Resources</h4>
+            <ul class="footer-links">
+                <li><a href="/case-studies/">Case Studies</a></li>
+                <li><a href="/blogs/">Blog</a></li>
+                <li><a href="/documentation/">Documentation</a></li>
+                <li><a href="/guide/">Guides</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Connect</h4>
+            <ul class="footer-links">
+                <li><a href="https://x.com/Fusion_Term" target="_blank">X</a></li>
+                <li><a href="https://linkedin.com/in/brayden-jones-2947832a7" target="_blank">LinkedIn</a></li>
+                <li><a href="https://www.youtube.com/@AI.W.Fusion" target="_blank">YouTube</a></li>
+                <li><a href="https://discord.gg/JkfehrMkY3" target="_blank">Discord</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Contact Us</h4>
+            <div class="contact-info">
+                <p>Email: support@fusionai.com</p>
+                <p>Phone: +123-456-7890</p>
+            </div>
+            <!-- Footer Newsletter Signup -->
+            <div class="newsletter-section">
+                <h4>Stay Updated</h4>
+                <form id="newsletter-form">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('newsletter-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+    
+            fetch('http://localhost:3000/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.text())
+            .then(result => {
+                alert(result);
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Oops! There was a problem signing up.');
+            });
+        });
+    </script>
+</footer>
+
+<style>
+
+.newsletter-section h4 {
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.newsletter-section form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.newsletter-section input {
+    padding: 0.75rem 1rem;
+    border: 1px solid #0062ff;
+    border-radius: 8px;
+    flex: 1;
+    background: #1b1c1c;
+    color: #ffffff; /* Set the text color to white */
+}
+
+.newsletter-section button {
+    padding: 0.75rem 1.5rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 120px; /* Set a fixed width */
+    height: 45px; /* Set a fixed height */
+    font-size: 1rem; /* Adjust font size */
+    text-align: center; /* Center the text */
+}
+
+.newsletter-section button:hover {
+    background: #0056b3;
+}
+
+footer {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 5rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem;
+    padding: 0 2rem;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.footer-section h4 {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.75rem;
+}
+
+.footer-section h4:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 30px;
+    height: 2px;
+    background: #007bff;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: #999;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: #fff;
+    transform: translateX(5px);
+}
+
+.contact-info p {
+    color: #999;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.newsletter {
+    margin-top: 2rem;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.875rem 1.25rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form input::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+.newsletter-form input:focus {
+    outline: none;
+    border-color: #007bff;
+    background: rgba(255,255,255,0.1);
+}
+
+.newsletter-form button {
+    padding: 0.875rem 1.5rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .newsletter-form button {
+        width: 100%;
+    }
+}
+</style>
+
+</body>
+</html>
