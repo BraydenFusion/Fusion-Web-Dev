@@ -317,3 +317,32 @@ mongoose.connect(process.env.MONGODB_URI, {
 }).catch(err => {
     console.error('MongoDB connection error:', err);
 });
+
+const express = require('express');
+const path = require('path');
+
+// Serve static files from the current directory
+app.use(express.static(__dirname));
+
+// Clean URL routes
+app.get('/home', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Home.html'));
+});
+
+app.get('/pricing', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Pricing.html'));
+});
+
+// Optional: Redirect `.html` URLs to clean URLs
+app.get('/Home.html', (req, res) => {
+    res.redirect('/home');
+});
+
+app.get('/Pricing.html', (req, res) => {
+    res.redirect('/pricing');
+});
+
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
+});

@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Fusion AI</title>
+    <meta name="description" content="Learn more about Fusion AI, our mission, values, and the team dedicated to providing top-notch AI solutions to help your business thrive.">
+    <meta name="keywords" content="Fusion AI, About Us, AI Solutions, Our Team, Mission, Values, AI Technology, Business Growth, Machine Learning, Data Insights">
+
+    <link rel="canonical" href="https://www.fusionai.agency/about-us.html">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="About Us | Fusion AI">
+    <meta property="og:description" content="Learn more about Fusion AI, our mission, values, and the team dedicated to providing top-notch AI solutions to help your business thrive.">
+    <meta property="og:image" content="https://www.fusionai.agency/images/og-about-us.jpg">
+    <meta property="og:url" content="https://www.fusionai.agency/about-us.html">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About Us | Fusion AI">
+    <meta name="twitter:description" content="Learn more about Fusion AI, our mission, values, and the team dedicated to providing top-notch AI solutions to help your business thrive.">
+    <meta name="twitter:image" content="https://www.fusionai.agency/images/twitter-about-us.jpg">
+
+    <!-- Stylesheet -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.75rem 1.25rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-item a:hover {
+            background-color: #f5f7fa;
+            color: #007bff;
+        }
+
+        .burger-menu {
+            position: absolute;
+            left: -5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+            width: 40px;
+            height: 40px;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .burger-menu:hover {
+            background-color: #f5f7fa;
+            color: #007bff;
+        }
+
+        .burger-dropdown {
+            position: absolute;
+            top: 100%;
+            left: -2rem;
+            width: 300px;
+            max-height: 80vh;
+            overflow-y: auto;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 0;
+            display: none;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1002;
+        }
+
+        .search-container {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            z-index: 1003;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #eee;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .burger-menu-section {
+            padding: 1rem;
+        }
+
+        .burger-menu-section h3 {
+            color: #666;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+
+        .burger-menu-items {
+            list-style: none; /* Removes bullets */
+            padding: 0;
+        }
+
+        .burger-menu-items li {
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .burger-menu-items a {
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        /* Add/Update burger menu dropdown styles */
+        .burger-menu-items li a {
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            padding: 0.75rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .burger-menu-items li a:hover {
+            background-color: #f5f7fa;
+            color: #007bff;
+            transform: translateX(4px);
+        }
+
+        .burger-menu-items i {
+            transition: transform 0.2s ease;
+        }
+
+        .burger-menu-items a:hover i {
+            transform: scale(1.1);
+        }
+
+        /* About Us Content Styles */
+        .about-header {
+            text-align: center;
+            padding: 10rem 2rem 6rem;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            margin-bottom: 4rem;
+        }
+
+        .about-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .mission-section {
+            text-align: center;
+            margin-bottom: 6rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .mission-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .mission-section p {
+            font-size: 1.2rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 6rem;
+        }
+
+        .value-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .team-section {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .team-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+        }
+
+        .team-member {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .member-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        /* Add dropdown styles */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            width: 600px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            padding: 1.5rem;
+            z-index: 1000;
+            margin-top: 1rem;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .dropdown-content {
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-content:hover {
+            background: #f1f3f5;
+        }
+
+        .dropdown-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .dropdown-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .dropdown-links li a {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-links li a:hover {
+            background: white;
+            color: #007bff;
+            transform: translateX(4px);
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Fusion AI",
+      "url": "https://www.fusionai.agency",
+      "logo": "https://www.fusionai.agency/images/logo.png",
+      "sameAs": [
+        "https://www.facebook.com/fusionai",
+        "https://www.twitter.com/fusionai",
+        "https://www.linkedin.com/company/fusionai"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-800-555-1234",
+        "contactType": "Customer Service",
+        "areaServed": "US",
+        "availableLanguage": ["English"]
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "John Doe",
+        "jobTitle": "CEO",
+        "image": "https://www.fusionai.agency/images/john-doe.jpg",
+        "url": "https://www.fusionai.agency/team/john-doe.html"
+      }
+    }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-links">
+                <div class="nav-item">
+                    <a href="Home.html">Home</a>
+                </div>
+                <div class="nav-item">
+                    <a href="pricing.html">Pricing</a>
+                </div>
+                <div class="nav-item">
+                    <a href="resources.html">Resources</a>
+                    <div class="dropdown">
+                        <div class="dropdown-grid">
+                            <div class="dropdown-content">
+                                <h3>🌟 Featured Resources</h3>
+                                <p>Discover our most popular guides and tutorials to help you succeed.</p>
+                                <ul class="dropdown-links">
+                                    <li><a href="guides.html"><span>📚</span>Complete Guides</a></li>
+                                    <li><a href="tutorials.html"><span>🎥</span>Video Tutorials</a></li>
+                                    <li><a href="case-studies.html"><span>📊</span>Case Studies</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown-content">
+                                <h3>📱 Learning Center</h3>
+                                <ul class="dropdown-links">
+                                    <li><a href="documentation.html"><span>📄</span>Documentation</a></li>
+                                    <li><a href="blogs.html"><span>📰</span>Blog Articles</a></li>
+                                    <li><a href="community.html"><span>👥</span>Community Forum</a></li>
+                                    <li><a href="support.html"><span>❓</span>FAQs</a></li>
+                                    <li><a href="sources.html"><span>💻</span>Sources</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="about-header">
+        <h1>About FusionAI</h1>
+        <p>Transforming businesses through intelligent automation</p>
+    </div>
+
+    <div class="about-container">
+        <div class="mission-section">
+            <div>
+                <h2>About FusionAI</h2>
+                &nbsp;
+
+                <p>
+                    At FusionAI, we empower businesses to reach new heights of efficiency, productivity, and innovation through
+                    cutting-edge automation and artificial intelligence. Founded with a mission to bridge the gap between complex AI
+                    technology and everyday business needs, FusionAI is transforming the way companies operate, helping them save
+                    time, reduce costs, and focus on what truly matters—their growth.
+                </p>
+            
+                &nbsp;
+
+                <h3>Our Mission</h3>
+
+                &nbsp;
+
+                <p>
+                    Our mission is to make advanced AI-driven automation accessible and effective for businesses of all sizes. By
+                    combining intuitive design with powerful AI capabilities, FusionAI helps organizations streamline workflows,
+                    improve decision-making, and enhance customer experiences—all without needing a team of AI experts.
+                </p>
+            
+                &nbsp;
+
+                <h3>Our Expertise</h3>
+
+                &nbsp;
+
+                <p>
+                    With a specialized focus on workflow automation, our team brings together experts in artificial intelligence,
+                    data science, and business process optimization. This blend of skills allows us to build AI solutions that are
+                    not only technically advanced but also tailored to meet real-world business demands.
+                </p>
+            
+                &nbsp;
+
+                <h3>What We Offer</h3>
+
+                &nbsp;
+
+                <p>
+                    FusionAI offers a robust suite of automation solutions, designed to fit a variety of industries, including:
+                </p>
+
+                &nbsp;
+
+                <ul>
+                    <li><strong>Sales & Marketing Automation</strong>: Streamline lead generation, email marketing, and customer
+                        engagement.</li>
+                    <li><strong>Customer Service Automation</strong>: Reduce response times and improve service quality through
+                        AI-driven support.</li>
+                    <li><strong>Operations Management</strong>: Simplify routine tasks and optimize workflows for greater efficiency.</li>
+                </ul>
+
+                &nbsp;
+
+                <p>
+                    Our flexible platform enables businesses to start with basic automation and scale up to more sophisticated
+                    workflows, integrating seamlessly with existing systems and applications.
+                </p>
+            
+                &nbsp;
+
+                <h3>Why Choose FusionAI?</h3>
+
+                &nbsp;
+
+                <ul>
+                    <li><strong>User-Friendly Platform</strong>: We design with usability in mind, so teams can deploy powerful
+                        automations with ease.</li>
+                    <li><strong>Scalable Solutions</strong>: FusionAI grows with your business, providing adaptable tools as you
+                        scale.</li>
+                    <li><strong>Continuous Innovation</strong>: We’re committed to staying at the forefront of AI technology,
+                        ensuring our clients benefit from the latest advancements in automation.</li>
+                </ul>
+            
+                &nbsp;
+
+                <h3>Our Vision for the Future</h3>
+
+                &nbsp;
+
+                <p>
+                    As AI and automation technology continue to evolve, so will FusionAI. We envision a world where businesses of
+                    all types can harness AI to achieve unprecedented levels of efficiency and innovation. By remaining focused on
+                    accessible, impactful AI, FusionAI is dedicated to being a trusted partner in our clients' growth journeys.
+                </p>
+            
+                &nbsp;
+
+                <p>
+                    Join us as we make intelligent automation simple, accessible, and transformative.
+                </p>
+            </div>
+        </div>
+        <div class="values-grid">
+            <div class="value-card">
+                <h3>Innovation</h3>
+                <p>Constantly pushing boundaries to create cutting-edge AI solutions.</p>
+            </div>
+            <div class="value-card">
+                <h3>Excellence</h3>
+                <p>Committed to delivering the highest quality in everything we do.</p>
+            </div>
+            <div class="value-card">
+                <h3>Customer Success</h3>
+                <p>Dedicated to helping our clients achieve their goals.</p>
+            </div>
+        </div>
+
+        <div class="team-section">
+            <h2>Our Leadership Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="/Users/braydensaunders-jones/Downloads/Photos/Untitled design.png" alt="AI Developer" class="member-image">
+                    <h3>Brayden Jones</h3>
+                    <p>AI Developer</p>
+                </div>
+                <div class="team-member">
+                    <img src="/Users/braydensaunders-jones/Downloads/image.jpeg" alt="Marketing Specialist" class="member-image">
+                    <h3>Philip Bruno</h3>
+                    <p>Marketing Specialist</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Update footer links -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>Company</h4>
+            <ul class="footer-links">
+                <li><a href="terms-of-service.html">Terms of Service</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Resources</h4>
+            <ul class="footer-links">
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="blogs.html">Blog</a></li>
+                <li><a href="documentation.html">Documentation</a></li>
+                <li><a href="guides.html">Guides</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Connect</h4>
+            <ul class="footer-links">
+                <li><a href="https://x.com/Fusion_Term" target="_blank">X</a></li>
+                <li><a href="https://linkedin.com/in/brayden-jones-2947832a7" target="_blank">LinkedIn</a></li>
+                <li><a href="https://www.youtube.com/@AI.W.Fusion" target="_blank">YouTube</a></li>
+                <li><a href="https://discord.gg/JkfehrMkY3" target="_blank">Discord</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Contact Us</h4>
+            <div class="contact-info">
+                <p>Email: support@fusionai.com</p>
+                <p>Phone: +123-456-7890</p>
+            </div>
+            <!-- Footer Newsletter Signup -->
+            <div class="newsletter-section">
+                <h4>Stay Updated</h4>
+                <form id="newsletter-form">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('newsletter-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+    
+            fetch('http://localhost:3000/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.text())
+            .then(result => {
+                alert(result);
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Oops! There was a problem signing up.');
+            });
+        });
+    </script>
+</footer>
+
+<style>
+
+.newsletter-section h4 {
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.newsletter-section form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.newsletter-section input {
+    padding: 0.75rem 1rem;
+    border: 1px solid #0062ff;
+    border-radius: 8px;
+    flex: 1;
+    background: #1b1c1c;
+    color: #ffffff; /* Set the text color to white */
+}
+
+.newsletter-section button {
+    padding: 0.75rem 1.5rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 120px; /* Set a fixed width */
+    height: 45px; /* Set a fixed height */
+    font-size: 1rem; /* Adjust font size */
+    text-align: center; /* Center the text */
+}
+
+.newsletter-section button:hover {
+    background: #0056b3;
+}
+
+footer {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 5rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem;
+    padding: 0 2rem;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.footer-section h4 {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.75rem;
+}
+
+.footer-section h4:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 30px;
+    height: 2px;
+    background: #007bff;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: #999;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: #fff;
+    transform: translateX(5px);
+}
+
+.contact-info p {
+    color: #999;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.newsletter {
+    margin-top: 2rem;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.875rem 1.25rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form input::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+.newsletter-form input:focus {
+    outline: none;
+    border-color: #007bff;
+    background: rgba(255,255,255,0.1);
+}
+
+.newsletter-form button {
+    padding: 0.875rem 1.5rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .newsletter-form button {
+        width: 100%;
+    }
+}
+</style>
+    
+<div style="width: 0; height: 0;" id="VG_OVERLAY_CONTAINER">
+    <!-- Here is where TIXAE Agents renders the widget. -->
+    <!-- Set render to 'full-width' then adjust the width and height to 500px (for example) to render the chatbot itself without the popup. -->
+</div>
+
+<!-- Remove 'defer' if you want widget to load faster (Will affect website loading) -->
+<script defer>
+    (function() {
+        window.VG_CONFIG = {
+            ID: "NzcljJJgdNozZiv", // YOUR AGENT ID
+            region: 'eu', // YOUR ACCOUNT REGION 
+            render: 'bottom-right', // can be 'full-width' or 'bottom-left' or 'bottom-right'
+            stylesheets: [
+                // Base TIXAE Agents CSS
+                "https://vg-bunny-cdn.b-cdn.net/vg_live_build/styles.css",
+                // Add your custom css stylesheets, Can also add relative URL ('/public/your-file.css)
+            ],
+            // THIS IS SUPPOSED TO BE CHANGED OR REMOVED.
+            // user: {
+            //     name: 'John Doe', // User's name
+            //     email: 'johndoe@gmail.com', // User's email
+            //     phone: '+1234567890', // User's phone number
+            // }
+            // Optional user data -- end
+            // **
+            // userID: 'USER_ID', // If you want to use your own user_id
+            // autostart: true, // Whether to autostart the chatbot with the proactive message
+        }
+        var VG_SCRIPT = document.createElement("script");
+        VG_SCRIPT.src = "https://vg-bunny-cdn.b-cdn.net/vg_live_build/vg_bundle.js";
+        VG_SCRIPT.defer = true; // Remove 'defer' if you want widget to load faster (Will affect website loading)
+        document.body.appendChild(VG_SCRIPT);
+    })()
+</script>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
