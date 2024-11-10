@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Case Studies | Fusion AI</title>
+    <meta name="description" content="Discover how Fusion AI has helped businesses transform with our cutting-edge artificial intelligence solutions. Explore our case studies to learn about our impact and expertise.">
+    <meta name="keywords" content="Fusion AI Case Studies, AI Solutions, Business Transformation, Artificial Intelligence, Machine Learning, Data Insights, AI Implementation, Success Stories">
+
+    <link rel="canonical" href="https://www.fusionai.agency/case-studies.html">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Case Studies | Fusion AI">
+    <meta property="og:description" content="Discover how Fusion AI has helped businesses transform with our cutting-edge artificial intelligence solutions. Explore our case studies to learn about our impact and expertise.">
+    <meta property="og:image" content="https://www.fusionai.agency/images/og-case-studies.jpg">
+    <meta property="og:url" content="https://www.fusionai.agency/case-studies.html">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Case Studies | Fusion AI">
+    <meta name="twitter:description" content="Discover how Fusion AI has helped businesses transform with our cutting-edge artificial intelligence solutions. Explore our case studies to learn about our impact and expertise.">
+    <meta name="twitter:image" content="https://www.fusionai.agency/images/twitter-case-studies.jpg">
+
+    <!-- Responsive Design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.75rem 1.25rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-item a:hover {
+            background-color: #f5f7fa;
+            color: #007bff;
+        }
+
+        /* Case Studies Styles */
+        .case-studies-header {
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+        }
+
+        .case-studies-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .case-studies-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 3rem;
+        }
+
+        /* Update case study card styles */
+        .case-study-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .case-study-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .case-study-content {
+            padding: 2rem;
+        }
+
+        .case-study-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #e9ecef;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .case-study-title {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .case-study-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .case-study-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #007bff;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            width: 600px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            padding: 1.5rem;
+            z-index: 1000;
+            margin-top: 1rem;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .dropdown-content {
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-content:hover {
+            background: #f1f3f5;
+        }
+
+        .dropdown-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .dropdown-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .dropdown-links li a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0.75rem;
+            color: #444;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .dropdown-links li a:hover {
+            background: white;
+            color: #007bff;
+            transform: translateX(4px);
+        }
+
+                /* Responsive Styles */
+                @media (max-width: 992px) {
+            .case-study {
+                width: 45%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: #f8f9fa;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                width: 200px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                border-radius: 10px;
+                overflow: hidden;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                padding: 15px 20px;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .case-study {
+                width: 100%;
+            }
+        }
+
+    </style>
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "name": "Case Studies | Fusion AI",
+              "description": "Discover how Fusion AI has helped businesses transform with our cutting-edge artificial intelligence solutions. Explore our case studies to learn about our impact and expertise.",
+              "url": "https://www.fusionai.agency/case-studies.html",
+              "publisher": {
+                "@type": "Organization",
+                "name": "Fusion AI",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://www.fusionai.agency/images/logo.png"
+                }
+              },
+              "mainEntity": [{
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                  "@type": "CaseStudy",
+                  "name": "Transforming Retail with AI",
+                  "url": "https://www.fusionai.agency/case-studies/retail-ai.html",
+                  "image": "https://www.fusionai.agency/images/case-retail-ai.jpg",
+                  "description": "Learn how Fusion AI helped a leading retail company enhance customer experience and optimize inventory management through AI-driven solutions."
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@type": "CaseStudy",
+                  "name": "AI-Powered Healthcare Solutions",
+                  "url": "https://www.fusionai.agency/case-studies/healthcare-ai.html",
+                  "image": "https://www.fusionai.agency/images/case-healthcare-ai.jpg",
+                  "description": "Explore how Fusion AI developed advanced healthcare solutions to improve patient care and streamline medical processes."
+                }     
+      }]
+    }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-links">
+                <div class="nav-item">
+                    <a href="index.html">Home</a>
+                </div>
+                <div class="nav-item">
+                    <a href="pricing.html">Pricing</a>
+                </div>
+                <div class="nav-item">
+                    <a href="resources.html">Resources</a>
+                    <div class="dropdown">
+                        <div class="dropdown-grid">
+                            <div class="dropdown-content">
+                                <h3>🌟 Featured Resources</h3>
+                                <p>Discover our most popular guides and tutorials to help you succeed.</p>
+                                <ul class="dropdown-links">
+                                    <li><a href="guides.html"><span>📚</span>Complete Guides</a></li>
+                                    <li><a href="tutorials.html"><span>🎥</span>Video Tutorials</a></li>
+                                    <li><a href="case-studies.html"><span>📊</span>Case Studies</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown-content">
+                                <h3>📱 Learning Center</h3>
+                                <ul class="dropdown-links">
+                                    <li><a href="documentation.html"><span>📄</span>Documentation</a></li>
+                                    <li><a href="blogs.html"><span>📰</span>Blog Articles</a></li>
+                                    <li><a href="community.html"><span>👥</span>Community Forum</a></li>
+                                    <li><a href="support.html"><span>❓</span>FAQs</a></li>
+                                    <li><a href="sources.html"><span>💻</span>Sources</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </nav>    
+    </header>
+
+    <div class="case-studies-header">
+        <h1>Customer Success Stories</h1>
+        <p>See how businesses are transforming with FusionAI</p>
+    </div>
+
+    <div class="case-studies-container">
+        <div class="case-studies-grid">
+            <!-- E-commerce Case Study -->
+            <div class="case-study-card">
+                <div class="case-study-content">
+                    <span class="case-study-tag">E-commerce</span>
+                    <h2 class="case-study-title">Global Retail Giant: AI-Powered Customer Service</h2>
+                    <p>Transformed customer support operations with 24/7 automated assistance.</p>
+                    <div class="case-study-stats">
+                        <div class="stat">
+                            <div class="stat-number">92%</div>
+                            <div class="stat-label">Customer Satisfaction</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">65%</div>
+                            <div class="stat-label">Cost Reduction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Real Estate Case Study -->
+            <div class="case-study-card">
+                <div class="case-study-content">
+                    <span class="case-study-tag">Real Estate</span>
+                    <h2 class="case-study-title">Premier Properties: Lead Generation Revolution</h2>
+                    <p>Automated lead qualification and nurturing process for higher conversions.</p>
+                    <div class="case-study-stats">
+                        <div class="stat">
+                            <div class="stat-number">300%</div>
+                            <div class="stat-label">Lead Generation</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">45%</div>
+                            <div class="stat-label">Conversion Rate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Healthcare Case Study -->
+            <div class="case-study-card">
+                <div class="case-study-content">
+                    <span class="case-study-tag">Healthcare</span>
+                    <h2 class="case-study-title">MedCare Solutions: Patient Care Automation</h2>
+                    <p>Streamlined patient scheduling and follow-up processes.</p>
+                    <div class="case-study-stats">
+                        <div class="stat">
+                            <div class="stat-number">85%</div>
+                            <div class="stat-label">Time Saved</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">95%</div>
+                            <div class="stat-label">Patient Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Finance Case Study -->
+            <div class="case-study-card">
+                <div class="case-study-content">
+                    <span class="case-study-tag">Finance</span>
+                    <h2 class="case-study-title">Global Bank: Process Automation</h2>
+                    <p>End-to-end automation of financial operations and customer service.</p>
+                    <div class="case-study-stats">
+                        <div class="stat">
+                            <div class="stat-number">$2M</div>
+                            <div class="stat-label">Annual Savings</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">99%</div>
+                            <div class="stat-label">Accuracy Rate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Update footer links -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>Company</h4>
+            <ul class="footer-links">
+                <li><a href="terms-of-service.html">Terms of Service</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Resources</h4>
+            <ul class="footer-links">
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="blogs.html">Blog</a></li>
+                <li><a href="documentation.html">Documentation</a></li>
+                <li><a href="guides.html">Guides</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Connect</h4>
+            <ul class="footer-links">
+                <li><a href="https://x.com/Fusion_Term" target="_blank">X</a></li>
+                <li><a href="https://linkedin.com/in/brayden-jones-2947832a7" target="_blank">LinkedIn</a></li>
+                <li><a href="https://www.youtube.com/@AI.W.Fusion" target="_blank">YouTube</a></li>
+                <li><a href="https://discord.gg/JkfehrMkY3" target="_blank">Discord</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Contact Us</h4>
+            <div class="contact-info">
+                <p>Email: support@fusionai.com</p>
+                <p>Phone: +123-456-7890</p>
+            </div>
+            <!-- Footer Newsletter Signup -->
+            <div class="newsletter-section">
+                <h4>Stay Updated</h4>
+                <form id="newsletter-form">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('newsletter-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+    
+            fetch('http://localhost:3000/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.text())
+            .then(result => {
+                alert(result);
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Oops! There was a problem signing up.');
+            });
+        });
+    </script>
+</footer>
+
+<style>
+
+.newsletter-section h4 {
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.newsletter-section form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.newsletter-section input {
+    padding: 0.75rem 1rem;
+    border: 1px solid #0062ff;
+    border-radius: 8px;
+    flex: 1;
+    background: #1b1c1c;
+    color: #ffffff; /* Set the text color to white */
+}
+
+.newsletter-section button {
+    padding: 0.75rem 1.5rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 120px; /* Set a fixed width */
+    height: 45px; /* Set a fixed height */
+    font-size: 1rem; /* Adjust font size */
+    text-align: center; /* Center the text */
+}
+
+.newsletter-section button:hover {
+    background: #0056b3;
+}
+
+footer {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 5rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem;
+    padding: 0 2rem;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.footer-section h4 {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.75rem;
+}
+
+.footer-section h4:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 30px;
+    height: 2px;
+    background: #007bff;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: #999;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: #fff;
+    transform: translateX(5px);
+}
+
+.contact-info p {
+    color: #999;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.newsletter {
+    margin-top: 2rem;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.875rem 1.25rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form input::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+.newsletter-form input:focus {
+    outline: none;
+    border-color: #007bff;
+    background: rgba(255,255,255,0.1);
+}
+
+.newsletter-form button {
+    padding: 0.875rem 1.5rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .newsletter-form button {
+        width: 100%;
+    }
+}
+</style>
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
