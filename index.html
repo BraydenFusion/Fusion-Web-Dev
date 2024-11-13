@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Fusion AI</title>
+    <meta name="description" content="Welcome to Fusion AI. We offer the best AI technology to help your business thrive in our fast growing world.">
+    <meta name="keywords" content="AI, Automation, MachineLearning, Insights, Platform, Dashboard, Pricing, Documentation, Community, Templates, Resources, Tutorials, Integration, Privacy, Support, Status, Signup, Login, Solutions, Tools, CaseStudies, LiveChat, Business, Success, Data, Development, FusionAI, Enterprises, Efficiency, Growth, Secure, Agency, Guides, Features, Beginners, Newsletter">
+    <link rel="canonical" href="https://www.fusionai.agency/Home">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Home | Fusion AI">
+    <meta property="og:description" content="Welcome to Fusion AI. We offer the best AI technology to help your business thrive in our fast growing world.">
+    <meta property="og:image" content="https://www.yourwebsite.com/images/og-image.jpg">
+    <meta property="og:url" content="https://www.fusionai.agency/Home">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Home | Fusion AI">
+    <meta name="twitter:description" content="Welcome to Fusion AI. We offer the best AI technology to help your business thrive in our fast growing world.">
+    <meta name="twitter:image" content="Fusion AI.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to right, #ffffff, #f8f9fa);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.25rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .burger-menu {
+            position: justify;
+            left: -5rem; /* Reduced from 5rem */
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #000000;
+            width: 40px;
+            height: 40px;
+            display: flex !important; /* Force display at all times */
+            justify-content: center;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            z-index: 1001; /* Ensure it's always on top */
+        }
+
+        .burger-menu:hover {
+            background-color: #f5f7fa;
+            color: #007bff;
+        }
+
+        /* Update nav-item styling */
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-item > a {
+            text-decoration: none;
+            color: #2d3436;
+            font-weight: 500;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-item > a:hover {
+            background: #e9ecef;
+            color: #007bff;
+            transform: translateY(-1px);
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+
+        .dropdown-content {
+            padding: 1.25rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .dropdown-content:hover {
+            background: #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transform: translateY(-2px);
+        }
+
+
+        .dropdown-content h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dropdown-content p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .dropdown-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        /* Update dropdown link styles */
+        .dropdown-links li a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            color: #4a4a4a;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            text-decoration: none; /* Remove underline */
+        }
+
+        .dropdown-content a {
+            text-decoration: none; /* Remove underline for any other links in dropdown */
+        }
+
+        /* Ensure hover states don't add underlines */
+        .dropdown-links li a:hover {
+            background: #fff;
+            color: #007bff;
+            transform: translateX(4px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+
+        .search-container {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        .search-container.active {
+            display: block;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+
+        .video-container {
+            max-width: 975px;
+            margin: 2rem auto;
+            position: relative;
+            padding-bottom: 40%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .hero-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            min-width: 160px;
+        }
+
+        .booking-btn {
+            background-color: #007bff;
+            color: white;
+            border: 2px solid #007bff;
+        }
+
+        .booking-btn:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .demo-btn {
+            background-color: transparent;
+            color: #007bff;
+            border: 2px solid #007bff;
+        }
+
+        .demo-btn:hover {
+            background-color: #007bff;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero-button {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .burger-menu {
+                display: block;
+                left: 1rem;
+            }
+
+            .dropdown {
+                position: static;
+                width: 100%;
+                transform: none;
+                margin: 1rem 0;
+                padding: 1rem;
+            }
+
+            .dropdown-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 1rem;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+        }
+
+        /* Navigation Container */
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Ensures space between nav items and buttons */
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Navigation Links */
+        .nav-links {
+            display: flex;
+            justify-content: center; /* Center the navigation links */
+            align-items: center;
+            gap: 1rem;
+            flex: 1; /* Allow nav-links to take up available space */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .services-overview {
+            padding: 6rem 0;
+            background: #fff;
+        }
+
+        .services-overview h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .solution-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .solution-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .solution-card h3 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            color: #666;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: #007bff;
+            margin-right: 0.5rem;
+        }
+
+        .benefits-section {
+            background: #f8f9fa;
+            padding: 6rem 0;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .benefit-item h3 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .stats-section {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            padding: 6rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .solutions-grid,
+            .benefits-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .features-comparison {
+            background: #f8f9fa;
+            padding: 6rem 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .feature-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .feature-category h3 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .advanced-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .advanced-features li {
+            padding: 0.75rem 0;
+            color: #666;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .advanced-features li::before {
+            content: "✓";
+            color: #007bff;
+            margin-right: 0.75rem;
+            font-weight: bold;
+        }
+
+        .industry-solutions {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .industry-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .industry-card h3 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .industry-card p {
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .features-grid,
+            .industry-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        .benefits-section {
+    padding: 6rem 0;
+    background: #f8f9fa;
+}
+
+.benefits-content {
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.benefits-content h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 4rem;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    padding: 0 2rem;
+}
+
+.benefit-item {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+    text-align: left;
+}
+
+.benefit-item:hover {
+    transform: translateY(-5px);
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.benefit-item h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.benefit-item p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.benefit-points {
+    list-style: none;
+    padding: 0;
+}
+
+.benefit-points li {
+    color: #666;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.benefit-points li::before {
+    content: "✓";
+    color: #007bff;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+
+.search-container {
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    z-index: 1003;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.burger-menu-content {
+    padding: 1rem;
+}
+
+.burger-menu-section {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.burger-menu-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.burger-menu-section h3 {
+    color: #666;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+}
+
+
+
+.burger-menu-items li:hover {
+    background: #f5f7fa;
+}
+
+.burger-menu-items a {
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+}
+
+/* Update burger menu items styling */
+.burger-menu-items {
+    list-style: none;
+    padding: 0;
+}
+
+.burger-menu-section {
+    margin-bottom: 1.5rem;
+}
+
+.burger-menu-section h3 {
+    color: #666;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+    padding-left: 0.75rem;
+}
+
+.burger-menu-items li {
+    padding: 0.75rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    margin-bottom: 0.25rem;
+}
+
+.burger-menu-items a {
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.burger-menu-items i {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* Add back Resources dropdown styles */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    width: 600px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    padding: 1.5rem;
+    z-index: 1000;
+    margin-top: 1rem;
+}
+
+.nav-item:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.dropdown-content {
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.dropdown-content:hover {
+    background: #f1f3f5;
+}
+
+/* Update burger dropdown styles */
+.burger-dropdown {
+    position: absolute;
+    top: 100%;
+    left: -2rem;
+    width: 300px;
+    max-height: 80vh; /* Limit height and enable scrolling */
+    overflow-y: auto;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 0; /* Remove padding here since search container has its own */
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1002;
+}
+
+/* Customize scrollbar */
+.burger-dropdown::-webkit-scrollbar {
+    width: 8px;
+}
+
+.burger-dropdown::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.burger-dropdown::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+/* Update menu section styling */
+.burger-menu-section {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.burger-menu-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.burger-menu-section h3 {
+    color: #666;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+    padding-left: 0.75rem;
+}
+
+.burger-menu-items li {
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    margin-bottom: 0.25rem;
+}
+
+.burger-menu-items a {
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem; /* Reduced font size */
+}
+
+.burger-menu-items i {
+    font-size: 1rem;
+    color: #666;
+    min-width: 20px; /* Ensure consistent icon spacing */
+}
+
+/* Update search container styles */
+.search-container {
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 1rem;
+    margin: -1rem -1rem 1rem -1rem; /* Negative margin to align with dropdown edges */
+    border-bottom: 1px solid #eee;
+    z-index: 1003;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #eee;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+}
+
+/* Add padding to menu content */
+.burger-menu-content {
+    padding: 1rem;
+    padding-top: 0; /* Remove top padding since search has its own */
+}
+
+.burger-dropdown.active {
+    display: block !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.hero-section h1 {
+    font-size: 4.5rem; /* Increased from default */
+    font-weight: 700;
+    color: #2d2d2d;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem; /* Smaller on mobile */
+    }
+}
+
+/* Add/Update burger menu styles in homepage */
+.burger-menu-items li a {
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    padding: 0.75rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.burger-menu-items li a:hover {
+    background-color: #f5f7fa;
+    color: #007bff;
+    transform: translateX(4px);
+}
+
+.burger-menu-items a:hover i {
+    transform: scale(1.1);
+}
+
+/* New nav-buttons container */
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Space between buttons */
+    margin-left: auto; /* Push buttons to the right */
+}
+
+/* Styles for the header buttons */
+.header-button {
+    display: inline-block;
+    padding: 0.5rem 1rem; /* Adjust padding for height */
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 0.95rem; /* Adjust font size as needed */
+    font-weight: 500;
+    color: #007bff; /* Text color */
+    background-color: #ffffff; /* Background color */
+    border: 2px solid #007bff; /* Border color */
+    transition: background-color 0.3s ease;
+}
+
+/* Specific styles for the Sign Up button */
+.header-button[href="signup.html"] {
+    background-color: #ffffff; /* Green background for Sign Up */
+}
+
+/* Hover effects */
+.header-button:hover {
+    background-color: #007bff; /* Darker blue on hover */
+    color: #ffffff; /* White text on hover */
+}
+
+.header-button[href="signup.html"]:hover {
+    background-color: #007bff; /* Darker green on hover */
+    color: #ffffff; /* White text on hover */
+}
+
+ /* Responsive Styles */
+ @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: #f8f9fa;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                width: 200px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                border-radius: 10px;
+                overflow: hidden;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                padding: 15px 20px;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+        }
+
+    </style>
+
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Fusion AI",
+              "url": "https://www.yourwebsite.com",
+              "logo": "https://www.yourwebsite.com/images/logo.png",
+              "sameAs": [
+                "https://www.facebook.com/yourprofile",
+                "https://www.twitter.com/yourprofile",
+                "https://www.linkedin.com/in/yourprofile"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+1-800-555-1234",
+                "contactType": "Customer Service",
+                "areaServed": "US",
+                "availableLanguage": ["English", "Spanish"]
+              }
+            }
+            </script>
+        <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Fusion AI",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "150"
+  }
+}
+</script>
+
+</head>
+<body>
+    <header class="header">
+    <nav class="nav-container">
+        <div class="burger-menu">
+            ☰
+            <div class="burger-dropdown">
+                <div class="search-container">
+                    <input type="search" class="search-input" placeholder="Search...">
+                </div>
+                <div class="burger-menu-content">
+                    <div class="burger-menu-section">
+                        <h3>Main Navigation</h3>
+                        <ul class="burger-menu-items">
+                            <li><a href="index.html"><i>🏠</i>Home</a></li>
+                            <li><a href="pricing.html"><i>💰</i>Pricing</a></li>
+                            <li><a href="resources.html"><i>📚</i>Resources</a></li>
+                            <li><a href="contact.html"><i>📞</i>Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="burger-menu-section">
+                        <h3>Solutions</h3>
+                        <ul class="burger-menu-items">
+                            <li><a href="coming-soon.html"><i>⚡</i>Automation</a></li>
+                            <li><a href="coming-soon.html"><i>🔄</i>Integrations</a></li>
+                            <li><a href="template.html"><i>🏛️</i>Templates</a></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="burger-menu-section">
+                        <h3>Support</h3>
+                        <ul class="burger-menu-items">
+                            <li><a href="support.html"><i>❓</i>Help Center</a></li>
+                            <li><a href="documentation.html"><i>📖</i>Documentation</a></li>
+                            <li><a href="community.html"><i>👥</i>Community</a></li>
+                            <li><a href="status.html"><i>🟢</i>System Status</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="burger-menu-section">
+                        <h3>Company</h3>
+                        <ul class="burger-menu-items">
+                            <li><a href="about.html"><i>ℹ️</i>About Us</a></li>
+                            <li><a href="blogs.html"><i>📝</i>Blog</a></li>
+                            <li><a href="live-chat.html"><i>📧</i>Contact Support</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav-links">
+            <div class="nav-item">
+                <a href="index.html">Home</a>
+            </div>
+            <div class="nav-item">
+                <a href="pricing.html">Pricing</a>
+            </div>
+            <div class="nav-item">
+                <a href="resources.html">Resources</a>
+                <div class="dropdown">
+                    <div class="dropdown-grid">
+                        <div class="dropdown-content">
+                            <h3>🌟 Featured Resources</h3>
+                            <p>Discover our most popular guides and tutorials to help you succeed.</p>
+                            <ul class="dropdown-links">
+                                <li><a href="guides.html"><span>📚</span>Complete Guides</a></li>
+                                <li><a href="tutorials.html"><span>🎥</span>Video Tutorials</a></li>
+                                <li><a href="case-studies.html"><span>📊</span>Case Studies</a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdown-content">
+                            <h3>📱 Learning Center</h3>
+                            <ul class="dropdown-links">
+                                <li><a href="documentation.html"><span>📄</span>Documentation</a></li>
+                                <li><a href="blogs.html"><span>📰</span>Blog Articles</a></li>
+                                <li><a href="community.html"><span>👥</span>Community Forum</a></li>
+                                <li><a href="support.html"><span>❓</span>FAQs</a></li>
+                                <li><a href="sources.html"><span>💻</span>Sources</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="contact.html">Contact</a>
+            </div>
+    </nav>
+</header>
+
+    <section class="hero-section">
+        <h1>Welcome to Our Platform</h1>
+        
+        <div class="video-container">
+            <iframe
+                src="https://www.youtube.com/embed/xeuMqulmMlQ"
+                title="YouTube video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <p>Transform your business with our innovative solutions</p>
+
+        <div class="hero-buttons">
+            <a href="/contact/" class="hero-button booking-btn">Get a Demo</a>
+        </div>
+    </section>
+
+    <section class="services-overview">
+        <div class="container">
+            <h2>Transform Your Business with AI Automation</h2>
+            <p class="section-subtitle">Streamline operations, reduce costs, and boost efficiency with our cutting-edge AI solutions</p>
+            
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">🤖</div>
+                    <h3>AI Voice Agents</h3>
+                    <p>Intelligent customer support and lead generation through natural voice conversations</p>
+                    <ul class="feature-list">
+                        <li>24/7 Customer Support</li>
+                        <li>Natural Language Processing</li>
+                        <li>Multilingual Support</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-icon">📱</div>
+                    <h3>Automated CRM</h3>
+                    <p>Smart customer relationship management that works while you sleep</p>
+                    <ul class="feature-list">
+                        <li>Lead Scoring</li>
+                        <li>Automated Follow-ups</li>
+                        <li>Performance Analytics</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-icon">🔄</div>
+                    <h3>Social Media Automation</h3>
+                    <p>Maintain consistent brand presence across all platforms automatically</p>
+                    <ul class="feature-list">
+                        <li>Scheduled Posting</li>
+                        <li>Content Generation</li>
+                        <li>Engagement Tracking</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-icon">🎯</div>
+                    <h3>Lead Generation AI</h3>
+                    <p>Automated lead qualification and nurturing system</p>
+                    <ul class="feature-list">
+                        <li>Smart Lead Scoring</li>
+                        <li>Automated Email Campaigns</li>
+                        <li>Prospect Analytics</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-icon">🗣️</div>
+                    <h3>AI Customer Support</h3>
+                    <p>24/7 intelligent customer service automation</p>
+                    <ul class="feature-list">
+                        <li>Instant Response System</li>
+                        <li>Ticket Management</li>
+                        <li>Support Analytics</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-icon">📅</div>
+                    <h3>Smart Scheduling</h3>
+                    <p>Automated appointment booking and management</p>
+                    <ul class="feature-list">
+                        <li>Calendar Integration</li>
+                        <li>Automated Reminders</li>
+                        <li>Schedule Optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits-section">
+    <div class="container">
+        <div class="benefits-content">
+            <h2>Why Choose FusionAI?</h2>
+            <p class="section-subtitle">Transform your business with cutting-edge AI solutions</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Save Time</h3>
+                    <p>Reduce manual tasks by up to 80% with our intelligent automation solutions. Streamline workflows and boost productivity across your organization.</p>
+                    <ul class="benefit-points">
+                        <li>Automated task management</li>
+                        <li>Smart workflow optimization</li>
+                        <li>Real-time process automation</li>
+                    </ul>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Cut Costs</h3>
+                    <p>Lower operational costs by 60% while improving service quality. Maximize ROI with efficient resource allocation.</p>
+                    <ul class="benefit-points">
+                        <li>Reduced operational expenses</li>
+                        <li>Optimized resource usage</li>
+                        <li>Enhanced cost efficiency</li>
+                    </ul>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">📈</div>
+                    <h3>Scale Fast</h3>
+                    <p>Handle growing demand without increasing headcount. Easily scale your operations with our flexible AI solutions.</p>
+                    <ul class="benefit-points">
+                        <li>Seamless scalability</li>
+                        <li>Flexible deployment</li>
+                        <li>Enterprise-ready solutions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="features-comparison">
+        <div class="container">
+            <h2>Enterprise-Grade Features</h2>
+            <p class="section-subtitle">Powerful tools designed for business growth</p>
+            
+            <div class="features-grid">
+                <div class="feature-category">
+                    <h3>Integration & Security</h3>
+                    <ul class="advanced-features">
+                        <li>API Integration</li>
+                        <li>Enterprise SSO</li>
+                        <li>256-bit Encryption</li>
+                        <li>GDPR Compliance</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-category">
+                    <h3>Analytics & Reports</h3>
+                    <ul class="advanced-features">
+                        <li>Real-time Dashboards</li>
+                        <li>Custom Reports</li>
+                        <li>Performance Metrics</li>
+                        <li>ROI Tracking</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-category">
+                    <h3>AI & Machine Learning</h3>
+                    <ul class="advanced-features">
+                        <li>Natural Language Processing</li>
+                        <li>Sentiment Analysis</li>
+                        <li>Predictive Analytics</li>
+                        <li>Pattern Recognition</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="industry-solutions">
+        <div class="container">
+            <h2>Industry Solutions</h2>
+            <p class="section-subtitle">Tailored AI automation for every sector</p>
+            
+            <div class="industry-grid">
+                <div class="industry-card">
+                    <h3>Healthcare</h3>
+                    <p>Patient scheduling, document processing, and care coordination</p>
+                </div>
+                
+                <div class="industry-card">
+                    <h3>Real Estate</h3>
+                    <p>Lead nurturing, property matching, and client communication</p>
+                </div>
+                
+                <div class="industry-card">
+                    <h3>E-commerce</h>
+                    <p>Customer support, inventory management, and sales automation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>95%</h3>                    
+                    <p>Customer Satisfaction</p>
+                </div>
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Businesses Automated</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1M+</h3>
+                    <p>AI Interactions Monthly</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.querySelector('.burger-menu').addEventListener('click', () => {
+            document.querySelector('.search-container').classList.toggle('active');
+        });
+
+        // Add this JavaScript for burger menu functionality
+        document.querySelector('.burger-menu').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Update click handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const burgerMenu = document.querySelector('.burger-menu');
+            const burgerDropdown = document.querySelector('.burger-dropdown');
+
+            burgerMenu.addEventListener('click', function(e) {
+                e.stopPropagation();
+                burgerDropdown.classList.toggle('active');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!burgerMenu.contains(e.target)) {
+                    burgerDropdown.classList.remove('active');
+                }
+            });
+
+            // Prevent dropdown from closing when clicking inside it
+            burgerDropdown.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const burgerMenu = document.querySelector('.burger-menu');
+            const burgerDropdown = document.querySelector('.burger-dropdown');
+
+            burgerMenu.addEventListener('click', function(e) {
+                e.stopPropagation();
+                burgerDropdown.style.display = burgerDropdown.style.display === 'block' ? 'none' : 'block';
+                burgerDropdown.style.opacity = burgerDropdown.style.display === 'block' ? '1' : '0';
+                burgerDropdown.style.transform = burgerDropdown.style.display === 'block' ? 'translateY(0)' : 'translateY(-10px)';
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!burgerMenu.contains(e.target)) {
+                    burgerDropdown.style.display = 'none';
+                    burgerDropdown.style.opacity = '0';
+                    burgerDropdown.style.transform = 'translateY(-10px)';
+                }
+            });
+
+            // Prevent dropdown from closing when clicking inside it
+            burgerDropdown.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
+
+    <!-- Rest of your existing content -->
+
+<!-- Update footer links -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>Company</h4>
+            <ul class="footer-links">
+                <li><a href="terms-of-service.html">Terms of Service</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Resources</h4>
+            <ul class="footer-links">
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="blogs.html">Blog</a></li>
+                <li><a href="documentation.html">Documentation</a></li>
+                <li><a href="guides.html">Guides</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Connect</h4>
+            <ul class="footer-links">
+                <li><a href="https://x.com/Fusion_Term" target="_blank">X</a></li>
+                <li><a href="https://linkedin.com/in/brayden-jones-2947832a7" target="_blank">LinkedIn</a></li>
+                <li><a href="https://www.youtube.com/@AI.W.Fusion" target="_blank">YouTube</a></li>
+                <li><a href="https://discord.gg/JkfehrMkY3" target="_blank">Discord</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Contact Us</h4>
+            <div class="contact-info">
+                <p>Email: support@fusionai.com</p>
+                <p>Phone: +123-456-7890</p>
+            </div>
+            <!-- Footer Newsletter Signup -->
+            <div class="newsletter-section">
+                <h4>Stay Updated</h4>
+                <form id="newsletter-form">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('newsletter-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            fetch('https://your-backend-domain.com/signup', { // Replace with your actual backend URL
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.text())
+            .then(result => {
+                alert(result);
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Oops! There was a problem signing up.');
+            });
+        });
+    </script>
+</footer>
+
+<style>
+
+.newsletter-section h4 {
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.newsletter-section form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.newsletter-section input {
+    padding: 0.75rem 1rem;
+    border: 1px solid #0062ff;
+    border-radius: 8px;
+    flex: 1;
+    background: #1b1c1c;
+    color: #ffffff; /* Set the text color to white */
+}
+
+.newsletter-section button {
+    padding: 0.75rem 1.5rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 120px; /* Set a fixed width */
+    height: 45px; /* Set a fixed height */
+    font-size: 1rem; /* Adjust font size */
+    text-align: center; /* Center the text */
+}
+
+.newsletter-section button:hover {
+    background: #0056b3;
+}
+
+footer {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 5rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem;
+    padding: 0 2rem;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.footer-section h4 {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.75rem;
+}
+
+.footer-section h4:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 30px;
+    height: 2px;
+    background: #007bff;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: #999;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: #fff;
+    transform: translateX(5px);
+}
+
+.contact-info p {
+    color: #999;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.newsletter {
+    margin-top: 2rem;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.875rem 1.25rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form input::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+.newsletter-form input:focus {
+    outline: none;
+    border-color: #007bff;
+    background: rgba(255,255,255,0.1);
+}
+
+.newsletter-form button {
+    padding: 0.875rem 1.5rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .newsletter-form button {
+        width: 100%;
+    }
+}
+
+        /* Footer Buttons Container */
+        .footer-buttons {
+            display: flex;
+            gap: 0.5rem; /* Space between buttons */
+            margin-top: 1rem;
+        }
+
+        /* Reuse Header Button Styles for Footer */
+        .footer-button {
+            display: inline-block;
+            padding: 0.5rem 1rem; /* Consistent padding */
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #ffffff;
+            background-color: #1d1d1d;
+            border: 1px solid #007bff;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Specific Styles for Sign Up Button */
+        .footer-button[href="signup.html"] {
+            color: #ffffff;
+            border: 1px solid #007bff;
+        }
+
+        /* Hover Effects */
+        .footer-button:hover {
+            background-color: #007bff;
+            color: #ffffff;
+            border-color: #0056b3;
+        }
+
+        .footer-button[href="signup.html"]:hover {
+            background-color: #007bff;
+            color: #ffffff;
+            border-color: #0056b3;
+        }
+
+</style>
+
+<div style="width: 0; height: 0;" id="VG_OVERLAY_CONTAINER">
+    <!-- Here is where TIXAE Agents renders the widget. -->
+    <!-- Set render to 'full-width' then adjust the width and height to 500px (for example) to render the chatbot itself without the popup. -->
+</div>
+
+<!-- Remove 'defer' if you want widget to load faster (Will affect website loading) -->
+<script defer>
+    (function() {
+        window.VG_CONFIG = {
+            ID: "NzcljJJgdNozZiv", // YOUR AGENT ID
+            region: 'eu', // YOUR ACCOUNT REGION 
+            render: 'bottom-right', // can be 'full-width' or 'bottom-left' or 'bottom-right'
+            stylesheets: [
+                // Base TIXAE Agents CSS
+                "https://vg-bunny-cdn.b-cdn.net/vg_live_build/styles.css",
+                // Add your custom css stylesheets, Can also add relative URL ('/public/your-file.css)
+            ],
+            // THIS IS SUPPOSED TO BE CHANGED OR REMOVED.
+            // user: {
+            //     name: 'John Doe', // User's name
+            //     email: 'johndoe@gmail.com', // User's email
+            //     phone: '+1234567890', // User's phone number
+            // }
+            // Optional user data -- end
+            // **
+            // userID: 'USER_ID', // If you want to use your own user_id
+            // autostart: true, // Whether to autostart the chatbot with the proactive message
+        }
+        var VG_SCRIPT = document.createElement("script");
+        VG_SCRIPT.src = "https://vg-bunny-cdn.b-cdn.net/vg_live_build/vg_bundle.js";
+        VG_SCRIPT.defer = true; // Remove 'defer' if you want widget to load faster (Will affect website loading)
+        document.body.appendChild(VG_SCRIPT);
+    })()
+</script>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>

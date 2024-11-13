@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Community | Fusion AI</title>
+    <meta name="description" content="Join the Fusion AI community to collaborate, share insights, and grow with professionals in the field of artificial intelligence and machine learning.">
+    <meta name="keywords" content="Fusion AI Community, AI Forums, Machine Learning Discussions, AI Collaboration, Data Science Community, AI Networking, Tech Community, AI Events">
+    
+    <link rel="canonical" href="https://www.fusionai.agency/community.html">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Community | Fusion AI">
+    <meta property="og:description" content="Join the Fusion AI community to collaborate, share insights, and grow with professionals in the field of artificial intelligence and machine learning.">
+    <meta property="og:image" content="https://www.fusionai.agency/images/og-community.jpg">
+    <meta property="og:url" content="https://www.fusionai.agency/community.html">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Community | Fusion AI">
+    <meta name="twitter:description" content="Join the Fusion AI community to collaborate, share insights, and grow with professionals in the field of artificial intelligence and machine learning.">
+    <meta name="twitter:image" content="https://www.fusionai.agency/images/twitter-community.jpg">
+
+    <!-- Responsive Design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+        }
+
+        .contact-header {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            margin-top: 80px; /* Adjust based on header height */
+        }
+
+        .contact-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .contact-content {
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .contact-form, .calendar-section {
+            flex: 1;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        .submit-btn {
+            background: #007bff;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #0056b3;
+        }
+
+        .calendar-section {
+            display: flex;
+            flex-direction: column;
+            height: 650px; /* Adjust height as needed */
+        }
+
+        .calendar-section h2 {
+            margin-bottom: 1rem;
+        }
+
+        /* Style the cal.com container */
+        #my-cal-inline {
+            width: 100%;
+            height: calc(100% - 3rem); /* Subtract heading space */
+            overflow: auto;
+            border-radius: 8px;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin: 6rem auto;
+            max-width: 10000px;
+            padding: 1 4rem;
+        }
+
+        .contact-info-grid {
+            display: flex;
+            justify-content: center; /* Center the items horizontally */
+            gap: 2rem;
+            margin-top: 2rem;
+            margin: 2rem auto; /* Center the grid container itself */
+        }
+
+        .info-item {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            flex: 1 1 300px; /* Allow items to grow and shrink */
+            max-width: 300px; /* Set a max width for each item */
+        }
+
+        .info-item i {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .calendar-section {
+                height: 600px;
+            }
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-item > a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.75rem 1.25rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-item > a:hover {
+            background-color: #f5f7fa;
+            color: #007bff;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 1rem;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+
+            .nav-item > a {
+                padding: 0.5rem 1rem;
+                display: block;
+                width: 100%;
+            }
+            
+            .nav-item > a:hover {
+                background-color: #f5f7fa;
+            }
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            min-width: 480px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            padding: 2rem;
+            z-index: 1000;
+            margin-top: 1rem;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .dropdown-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .dropdown-content {
+            padding: 0.5rem 0;
+        }
+
+        .dropdown-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .dropdown-description {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .dropdown-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .dropdown-links a {
+            color: #2b2b2b;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-links a:hover {
+            background-color: #f5f7fa;
+            color: #007bff;
+            transform: translateX(4px);
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            width: 600px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            padding: 1.5rem;
+            z-index: 1000;
+            margin-top: 1rem;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .dropdown-content {
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-content:hover {
+            background: #f1f3f5;
+        }
+
+        .dropdown-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .dropdown-links li a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0.75rem;
+            color: #444;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .dropdown-links li a:hover {
+            background: white;
+            color: #007bff;
+            transform: translateX(4px);
+        }
+    </style>
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "ContactPage",
+              "name": "Contact Us | Fusion AI",
+              "description": "Get in touch with Fusion AI to learn more about our artificial intelligence solutions, request a demo, or discuss your project needs. We're here to help your business thrive with cutting-edge AI technologies.",
+              "url": "https://www.fusionai.agency/contact.html",
+              "publisher": {
+                "@type": "Organization",
+                "name": "Fusion AI",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://www.fusionai.agency/images/logo.png"
+                }
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+1-800-555-1234",
+                "contactType": "Customer Service",
+                "areaServed": "US",
+                "availableLanguage": ["English"]
+              }
+            }
+            </script>
+    
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">             
+            <div class="nav-links">
+                <div class="nav-item">
+                    <a href="index.html">Home</a>
+                </div>
+                <div class="nav-item">
+                    <a href="pricing.html">Pricing</a>
+                </div>
+                <div class="nav-item">
+                    <a href="resources.html">Resources</a>
+                    <div class="dropdown">
+                        <div class="dropdown-grid">
+                            <div class="dropdown-content">
+                                <h3>🌟 Featured Resources</h3>
+                                <p>Discover our most popular guides and tutorials to help you succeed.</p>
+                                <ul class="dropdown-links">
+                                    <li><a href="guides.html"><span>📚</span>Complete Guides</a></li>
+                                    <li><a href="tutorials.html"><span>🎥</span>Video Tutorials</a></li>
+                                    <li><a href="case-studies.html"><span>📊</span>Case Studies</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown-content">
+                                <h3>📱 Learning Center</h3>
+                                <ul class="dropdown-links">
+                                    <li><a href="documentation.html"><span>📄</span>Documentation</a></li>
+                                    <li><a href="blogs.html"><span>📰</span>Blog Articles</a></li>
+                                    <li><a href="community.html"><span>👥</span>Community Forum</a></li>
+                                    <li><a href="support.html"><span>❓</span>FAQs</a></li>
+                                    <li><a href="sources.html"><span>💻</span>Sources</a></li>
+    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="contact.html">Contact</a>
+                </div>
+        </nav>
+    </header> 
+    
+    <div class="contact-header">
+        <h1>Contact Us</h1>
+        <p>Get in touch with our team</p>
+    </div>
+
+    <div class="contact-container">
+        <div class="contact-content">
+            <div class="contact-form">
+                <h2>Send us a Message</h2>
+                <form action="https://formspree.io/f/xqakpreo" method="POST">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <input type="text" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="message" rows="5" required></textarea>
+                    </div>
+                    <button class="submit-btn" type="submit">Send Message</button>
+                </form>
+            </div>
+                    <div class="calendar-section">
+                        <h2>Book a Meeting</h2>
+                        <div id="my-cal-inline"></div>
+                        <script type="text/javascript">
+                            (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+                            Cal("init", "fusion-ai", {origin:"https://cal.com"});
+                    
+                            Cal.ns["fusion-ai"]("inline", {
+                                elementOrSelector:"#my-cal-inline",
+                                config: {"layout":"month_view"},
+                                calLink: "fusion-ai/fusion-ai",
+                            });
+                    
+                            Cal.ns["fusion-ai"]("ui", {"styles":{"branding":{"brandColor":"#0081ff"}},"hideEventTypeDetails":false,"layout":"month_view"});
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    form.reset();
+                    alert('Thank you for your message. We will get back to you soon.');
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            alert(data["errors"].map(error => error["message"]).join(", "));
+                        } else {
+                            alert('Oops! There was a problem submitting your form');
+                        }
+                    });
+                }
+            }).catch(error => {
+                alert('Oops! There was a problem submitting your form');
+            });
+        });
+    </script>
+
+    <div class="contact-info">
+        <h2>Other Ways to Connect</h2>
+        <div class="contact-info-grid">
+            <div class="info-item">
+                <i>📧</i>
+                <h3>Email</h3>
+                <p>contact@fusionai.com</p>
+            </div>
+            <div class="info-item">
+                <i>📞</i>
+                <h3>Phone</h3>
+                <p>+1 (123) 456-7890</p>
+            </div>
+        </div>
+    </div>
+
+<!-- Update footer links -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>Company</h4>
+            <ul class="footer-links">
+                <li><a href="terms-of-service.html">Terms of Service</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Resources</h4>
+            <ul class="footer-links">
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="blogs.html">Blog</a></li>
+                <li><a href="documentation.html">Documentation</a></li>
+                <li><a href="guides.html">Guides</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Connect</h4>
+            <ul class="footer-links">
+                <li><a href="https://x.com/Fusion_Term" target="_blank">X</a></li>
+                <li><a href="https://linkedin.com/in/brayden-jones-2947832a7" target="_blank">LinkedIn</a></li>
+                <li><a href="https://www.youtube.com/@AI.W.Fusion" target="_blank">YouTube</a></li>
+                <li><a href="https://discord.gg/JkfehrMkY3" target="_blank">Discord</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Contact Us</h4>
+            <div class="contact-info">
+                <p>Email: support@fusionai.com</p>
+                <p>Phone: +123-456-7890</p>
+            </div>
+            <!-- Footer Newsletter Signup -->
+            <div class="newsletter-section">
+                <h4>Stay Updated</h4>
+                <form id="newsletter-form">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('newsletter-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+    
+            fetch('http://localhost:3000/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.text())
+            .then(result => {
+                alert(result);
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Oops! There was a problem signing up.');
+            });
+        });
+    </script>
+</footer>
+
+<style>
+
+.newsletter-section h4 {
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.newsletter-section form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.newsletter-section input {
+    padding: 0.75rem 1rem;
+    border: 1px solid #0062ff;
+    border-radius: 8px;
+    flex: 1;
+    background: #1b1c1c;
+    color: #ffffff; /* Set the text color to white */
+}
+
+.newsletter-section button {
+    padding: 0.75rem 1.5rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 120px; /* Set a fixed width */
+    height: 45px; /* Set a fixed height */
+    font-size: 1rem; /* Adjust font size */
+    text-align: center; /* Center the text */
+}
+
+.newsletter-section button:hover {
+    background: #0056b3;
+}
+
+footer {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 5rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem;
+    padding: 0 2rem;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.footer-section h4 {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.75rem;
+}
+
+.footer-section h4:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 30px;
+    height: 2px;
+    background: #007bff;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: #999;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: #fff;
+    transform: translateX(5px);
+}
+
+.contact-info p {
+    color: #999;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.newsletter {
+    margin-top: 2rem;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.875rem 1.25rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form input::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+.newsletter-form input:focus {
+    outline: none;
+    border-color: #007bff;
+    background: rgba(255,255,255,0.1);
+}
+
+.newsletter-form button {
+    padding: 0.875rem 1.5rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .newsletter-form button {
+        width: 100%;
+    }
+}
+</style>
+
+<div style="width: 0; height: 0;" id="VG_OVERLAY_CONTAINER">
+    <!-- Here is where TIXAE Agents renders the widget. -->
+    <!-- Set render to 'full-width' then adjust the width and height to 500px (for example) to render the chatbot itself without the popup. -->
+</div>
+
+<!-- Remove 'defer' if you want widget to load faster (Will affect website loading) -->
+<script defer>
+    (function() {
+        window.VG_CONFIG = {
+            ID: "NzcljJJgdNozZiv", // YOUR AGENT ID
+            region: 'eu', // YOUR ACCOUNT REGION 
+            render: 'bottom-right', // can be 'full-width' or 'bottom-left' or 'bottom-right'
+            stylesheets: [
+                // Base TIXAE Agents CSS
+                "https://vg-bunny-cdn.b-cdn.net/vg_live_build/styles.css",
+                // Add your custom css stylesheets, Can also add relative URL ('/public/your-file.css)
+            ],
+            // THIS IS SUPPOSED TO BE CHANGED OR REMOVED.
+            // user: {
+            //     name: 'John Doe', // User's name
+            //     email: 'johndoe@gmail.com', // User's email
+            //     phone: '+1234567890', // User's phone number
+            // }
+            // Optional user data -- end
+            // **
+            // userID: 'USER_ID', // If you want to use your own user_id
+            // autostart: true, // Whether to autostart the chatbot with the proactive message
+        }
+        var VG_SCRIPT = document.createElement("script");
+        VG_SCRIPT.src = "https://vg-bunny-cdn.b-cdn.net/vg_live_build/vg_bundle.js";
+        VG_SCRIPT.defer = true; // Remove 'defer' if you want widget to load faster (Will affect website loading)
+        document.body.appendChild(VG_SCRIPT);
+    })()
+</script>
+</body>
+</html>
