@@ -326,23 +326,41 @@ app.use(express.static(__dirname));
 
 // Clean URL routes
 app.get('/home', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Home.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.get('/pricing', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Pricing.html'));
+    res.sendFile(path.join(__dirname, 'pricing.html'));
 });
 
 // Optional: Redirect `.html` URLs to clean URLs
-app.get('/Home.html', (req, res) => {
+app.get('/index.html', (req, res) => {
     res.redirect('/home');
 });
 
-app.get('/Pricing.html', (req, res) => {
+app.get('/pricing.html', (req, res) => {
     res.redirect('/pricing');
 });
 
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
+});
+
+// Update in /assets/js/search.js after initializing Lunr.js
+idx.pipeline.before(lunr.stemmer, lunr.multiLanguage("en"));
+
+const synonyms = {
+  "ai": ["artificial intelligence"],
+  "automation": ["automated systems"],
+  // Add more synonyms as needed
+};
+
+idx.pipeline.add(function (token) {
+  if (synonyms[token.toString()]) {
+    synonyms[token.toString()].forEach(function (synonym) {
+      idx.add({ title: synonym, content: synonym });
+    });
+  }
+  return token;
 });
