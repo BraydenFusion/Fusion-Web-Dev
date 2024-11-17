@@ -116,11 +116,358 @@
             z-index: 1002;
         }
 
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            min-width: 480px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            padding: 2rem;
+            z-index: 1000;
+            margin-top: 1rem;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .dropdown-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .dropdown-content {
+            padding: 0.5rem 0;
+        }
+
+        .dropdown-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .dropdown-description {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .dropdown-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .dropdown-links a {
+            color: #2b2b2b;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-links a:hover {
+            background-color: #f5f7fa;
+            color: #007bff;
+            transform: translateX(4px);
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            width: 600px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            padding: 1.5rem;
+            z-index: 1000;
+            margin-top: 1rem;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .dropdown-content {
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-content:hover {
+            background: #f1f3f5;
+        }
+
+        .dropdown-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .dropdown-links li a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0.75rem;
+            color: #444;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .dropdown-links li a:hover {
+            background: white;
+            color: #007bff;
+            transform: translateX(4px);
+        }
+
+        .burger-menu-content {
+            padding: 1rem;
+        }
+
+        .burger-menu-section {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .burger-menu-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .burger-menu-section h3 {
+            color: #666;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+
+
+
+        .burger-menu-items li:hover {
+            background: #f5f7fa;
+        }
+
+        .burger-menu-items a {
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        /* Update burger menu items styling */
+        .burger-menu-items {
+            list-style: none;
+            padding: 0;
+        }
+
+        .burger-menu-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .burger-menu-section h3 {
+            color: #666;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+            padding-left: 0.75rem;
+        }
+
+        .burger-menu-items li {
+            padding: 0.75rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            margin-bottom: 0.25rem;
+        }
+
+        .burger-menu-items a {
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .burger-menu-items i {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        /* Add back Resources dropdown styles */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            width: 600px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            padding: 1.5rem;
+            z-index: 1000;
+            margin-top: 1rem;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .dropdown-content {
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-content:hover {
+            background: #f1f3f5;
+        }
+
+        /* Update burger dropdown styles */
+        .burger-dropdown {
+            position: absolute;
+            top: 100%;
+            left: -2rem;
+            width: 300px;
+            max-height: 80vh; /* Limit height and enable scrolling */
+            overflow-y: auto;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 0; /* Remove padding here since search container has its own */
+            display: none;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1002;
+        }
+
+        /* Customize scrollbar */
+        .burger-dropdown::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .burger-dropdown::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .burger-dropdown::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 4px;
+        }
+
+        /* Update menu section styling */
+        .burger-menu-section {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .burger-menu-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .burger-menu-section h3 {
+            color: #666;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+            padding-left: 0.75rem;
+            padding-top: 10px; /* Adjust the value as needed */
+        }
+
+        .burger-menu-items li {
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            margin-bottom: 0.25rem;
+        }
+
+        .burger-menu-items a {
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem; /* Reduced font size */
+        }
+
+        .burger-menu-items i {
+            font-size: 1rem;
+            color: #666;
+            min-width: 20px; /* Ensure consistent icon spacing */
+        }
+
+        /* Update search container styles */
         .search-container {
             position: sticky;
             top: 0;
             background: white;
             padding: 1rem;
+            margin: -1rem -1rem 1rem -1rem; /* Negative margin to align with dropdown edges */
             border-bottom: 1px solid #eee;
             z-index: 1003;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
@@ -135,39 +482,38 @@
             transition: all 0.3s ease;
         }
 
-        .burger-menu-section {
+        .search-input:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+        }
+
+        /* Add padding to menu content */
+        .burger-menu-content {
             padding: 1rem;
+            padding-top: 0; /* Remove top padding since search has its own */
         }
 
-        .burger-menu-section h3 {
-            color: #666;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.75rem;
+        .burger-dropdown.active {
+            display: block !important;
+            opacity: 1 !important;
+            transform: translateY(0) !important;
         }
 
-        .burger-menu-items {
-            list-style: none; /* Removes bullets */
-            padding: 0;
+        .hero-section h1 {
+            font-size: 4.5rem; /* Increased from default */
+            font-weight: 700;
+            color: #2d2d2d;
+            margin-bottom: 1.5rem;
         }
 
-        .burger-menu-items li {
-            padding: 0.5rem 0.75rem;
-            border-radius: 6px;
-            transition: all 0.2s ease;
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem; /* Smaller on mobile */
+            }
         }
 
-        .burger-menu-items a {
-            color: #333;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 0.9rem;
-        }
-
-        /* Add/Update burger menu dropdown styles */
+        /* Add/Update burger menu styles in homepage */
         .burger-menu-items li a {
             color: #333;
             text-decoration: none;
@@ -186,16 +532,166 @@
             transform: translateX(4px);
         }
 
-        .burger-menu-items i {
-            transition: transform 0.2s ease;
-        }
-
         .burger-menu-items a:hover i {
             transform: scale(1.1);
         }
 
-        /* About Us Content Styles */
-        .about-header {
+        /* New nav-buttons container */
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem; /* Space between buttons */
+            margin-left: auto; /* Push buttons to the right */
+        }
+
+        /* Styles for the header buttons */
+        .header-button {
+            display: inline-block;
+            padding: 0.5rem 1rem; /* Adjust padding for height */
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 0.95rem; /* Adjust font size as needed */
+            font-weight: 500;
+            color: #007bff; /* Text color */
+            background-color: #ffffff; /* Background color */
+            border: 2px solid #007bff; /* Border color */
+            transition: background-color 0.3s ease;
+        }
+
+        /* Specific styles for the Sign Up button */
+        .header-button[href="signup.html"] {
+            background-color: #ffffff; /* Green background for Sign Up */
+        }
+
+        /* Hover effects */
+        .header-button:hover {
+            background-color: #007bff; /* Darker blue on hover */
+            color: #ffffff; /* White text on hover */
+        }
+
+        .header-button[href="signup.html"]:hover {
+            background-color: #007bff; /* Darker green on hover */
+            color: #ffffff; /* White text on hover */
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: #f8f9fa;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                width: 200px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                border-radius: 10px;
+                overflow: hidden;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                padding: 15px 20px;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+        }
+
+        /* General Styles for Mobile View */
+        @media (max-width: 768px) {
+            .header {
+                position: relative;
+                width: 100%;
+                padding: 10px 20px;
+                background-color: #fff;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap; /* Allow wrapping of items */
+            }
+
+            .nav-links {
+                display: flex;
+                flex-direction: column; /* Stack links vertically */
+                width: 100%; /* Full width on mobile */
+                margin-top: 10px; /* Add some space below the header */
+            }
+
+            .nav-links a {
+                padding: 10px 0;
+                text-align: center; /* Center align text */
+                text-decoration: none;
+                color: #333;
+                transition: background-color 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                background-color: #f0f0f0;
+            }
+
+            .burger-menu {
+                display: block;
+                cursor: pointer;
+                font-size: 1.5rem;
+            }
+
+            .burger-dropdown {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+
+            .burger-dropdown.active {
+                display: block;
+            }
+
+            .burger-menu-content {
+                padding: 1rem;
+            }
+
+            .burger-menu-section h3 {
+                padding-top: 10px; /* Add padding above the Main Navigation header */
+            }
+
+            .burger-menu-items {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .burger-menu-items li {
+                padding: 10px 0;
+            }
+
+            .burger-menu-items li a {
+                text-decoration: none;
+                color: #333;
+                display: block;
+                padding: 10px;
+                transition: background-color 0.3s ease;
+            }
+
+            .burger-menu-items li a:hover {
+                background-color: #f0f0f0;
+            }
+        }
+
+                /* About Us Content Styles */
+                .about-header {
             text-align: center;
             padding: 10rem 2rem 6rem;
             background: linear-gradient(135deg, #007bff, #0056b3);
@@ -297,81 +793,6 @@
             margin-bottom: 1rem;
             object-fit: cover;
         }
-
-        /* Add dropdown styles */
-        .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            width: 600px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            border-radius: 12px;
-            padding: 1.5rem;
-            z-index: 1000;
-            margin-top: 1rem;
-        }
-
-        .nav-item:hover .dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        .dropdown-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        .dropdown-content {
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-        }
-
-        .dropdown-content:hover {
-            background: #f1f3f5;
-        }
-
-        .dropdown-image {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
-
-        .dropdown-links {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .dropdown-links li a {
-            text-decoration: none;
-            color: #333;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.5rem 0.75rem;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-        }
-
-        .dropdown-links li a:hover {
-            background: white;
-            color: #007bff;
-            transform: translateX(4px);
-        }
     </style>
 
     <!-- Structured Data -->
@@ -424,46 +845,91 @@
 <body>
     <header class="header">
         <nav class="nav-container">
+            <div class="burger-menu">
+                ☰
+                <div class="burger-dropdown">
+                    <div class="burger-menu-content">
+                        <div class="burger-menu-section">
+                            <h3>Main Navigation</h3>
+                            <ul class="burger-menu-items">
+                                <li><a href="index.html"><i>🏠</i>Home</a></li>
+                                <li><a href="pricing.html"><i>💰</i>Pricing</a></li>
+                                <li><a href="resources.html"><i>📚</i>Resources</a></li>
+                                <li><a href="contact.html"><i>📞</i>Contact</a></li>
+                            </ul>
+                        </div>
+    
+                        <div class="burger-menu-section">
+                            <h3>Solutions</h3>
+                            <ul class="burger-menu-items">
+                                <li><a href="coming-soon.html"><i>⚡</i>Automation</a></li>
+                                <li><a href="coming-soon.html"><i>🔄</i>Integrations</a></li>
+                                <li><a href="template.html"><i>🏛️</i>Templates</a></li>
+    
+                            </ul>
+                        </div>
+    
+                        <div class="burger-menu-section">
+                            <h3>Support</h3>
+                            <ul class="burger-menu-items">
+                                <li><a href="support.html"><i>❓</i>Help Center</a></li>
+                                <li><a href="documentation.html"><i>📖</i>Documentation</a></li>
+                                <li><a href="community.html"><i>👥</i>Community</a></li>
+                                <li><a href="status.html"><i>🟢</i>System Status</a></li>
+                            </ul>
+                        </div>
+    
+                        <div class="burger-menu-section">
+                            <h3>Company</h3>
+                            <ul class="burger-menu-items">
+                                <li><a href="about.html"><i>ℹ️</i>About Us</a></li>
+                                <li><a href="blogs.html"><i>📝</i>Blog</a></li>
+                                <li><a href="live-chat.html"><i>📧</i>Contact Support</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="nav-links">
-                    <div class="nav-item">
-                        <a href="index.html">Home</a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="pricing.html">Pricing</a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="resources.html">Resources</a>
-                        <div class="dropdown">
-                            <div class="dropdown-grid">
-                                <div class="dropdown-content">
-                                    <h3>🌟 Featured Resources</h3>
-                                    <p>Discover our most popular guides and tutorials to help you succeed.</p>
-                                    <ul class="dropdown-links">
-                                        <li><a href="guides.html"><span>📚</span>Complete Guides</a></li>
-                                        <li><a href="tutorials.html"><span>🎥</span>Video Tutorials</a></li>
-                                        <li><a href="case-studies.html"><span>📊</span>Case Studies</a></li>
-                                    </ul>
-                                </div>
-                                <div class="dropdown-content">
-                                    <h3>📱 Learning Center</h3>
-                                    <ul class="dropdown-links">
-                                        <li><a href="documentation.html"><span>📄</span>Documentation</a></li>
-                                        <li><a href="blogs.html"><span>📰</span>Blog Articles</a></li>
-                                        <li><a href="community.html"><span>👥</span>Community Forum</a></li>
-                                        <li><a href="support.html"><span>❓</span>FAQs</a></li>
-                                        <li><a href="sources.html"><span>💻</span>Sources</a></li>
-        
-                                    </ul>
-                                </div>
+                <div class="nav-item">
+                    <a href="index.html">Home</a>
+                </div>
+                <div class="nav-item">
+                    <a href="pricing.html">Pricing</a>
+                </div>
+                <div class="nav-item">
+                    <a href="resources.html">Resources</a>
+                    <div class="dropdown">
+                        <div class="dropdown-grid">
+                            <div class="dropdown-content">
+                                <h3>🌟 Featured Resources</h3>
+                                <p>Discover our most popular guides and tutorials to help you succeed.</p>
+                                <ul class="dropdown-links">
+                                    <li><a href="guides.html"><span>📚</span>Complete Guides</a></li>
+                                    <li><a href="tutorials.html"><span>🎥</span>Video Tutorials</a></li>
+                                    <li><a href="case-studies.html"><span>📊</span>Case Studies</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown-content">
+                                <h3>📱 Learning Center</h3>
+                                <ul class="dropdown-links">
+                                    <li><a href="documentation.html"><span>📄</span>Documentation</a></li>
+                                    <li><a href="blogs.html"><span>📰</span>Blog Articles</a></li>
+                                    <li><a href="community.html"><span>👥</span>Community Forum</a></li>
+                                    <li><a href="support.html"><span>❓</span>FAQs</a></li>
+                                    <li><a href="sources.html"><span>💻</span>Sources</a></li>
+    
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="nav-item">
-                        <a href="contact.html">Contact</a>
-                    </div>
-            </nav>
+                </div>
+                <div class="nav-item">
+                    <a href="contact.html">Contact</a>
+                </div>
+        </nav>
     </header>
-
+    
     <div class="about-header">
         <h1>About FusionAI</h1>
         <p>Transforming businesses through intelligent automation</p>
@@ -823,6 +1289,67 @@ footer {
 }
 </style>
     
+<script>
+    document.querySelector('.burger-menu').addEventListener('click', () => {
+        document.querySelector('.search-container').classList.toggle('active');
+    });
+
+    // Add this JavaScript for burger menu functionality
+    document.querySelector('.burger-menu').addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.toggle('active');
+    });
+
+    // Update click handler
+    document.addEventListener('DOMContentLoaded', function() {
+        const burgerMenu = document.querySelector('.burger-menu');
+        const burgerDropdown = document.querySelector('.burger-dropdown');
+
+        burgerMenu.addEventListener('click', function(e) {
+            e.stopPropagation();
+            burgerDropdown.classList.toggle('active');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!burgerMenu.contains(e.target)) {
+                burgerDropdown.classList.remove('active');
+            }
+        });
+
+        // Prevent dropdown from closing when clicking inside it
+        burgerDropdown.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const burgerMenu = document.querySelector('.burger-menu');
+        const burgerDropdown = document.querySelector('.burger-dropdown');
+
+        burgerMenu.addEventListener('click', function(e) {
+            e.stopPropagation();
+            burgerDropdown.style.display = burgerDropdown.style.display === 'block' ? 'none' : 'block';
+            burgerDropdown.style.opacity = burgerDropdown.style.display === 'block' ? '1' : '0';
+            burgerDropdown.style.transform = burgerDropdown.style.display === 'block' ? 'translateY(0)' : 'translateY(-10px)';
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!burgerMenu.contains(e.target)) {
+                burgerDropdown.style.display = 'none';
+                burgerDropdown.style.opacity = '0';
+                burgerDropdown.style.transform = 'translateY(-10px)';
+            }
+        });
+
+        // Prevent dropdown from closing when clicking inside it
+        burgerDropdown.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    });
+</script>
+
+
 <div style="width: 0; height: 0;" id="VG_OVERLAY_CONTAINER">
     <!-- Here is where TIXAE Agents renders the widget. -->
     <!-- Set render to 'full-width' then adjust the width and height to 500px (for example) to render the chatbot itself without the popup. -->
