@@ -982,6 +982,74 @@
             }
         }
 
+        /* General Styles for Mobile View */
+        @media (max-width: 768px) {
+            .header {
+                position: relative;
+                width: 100%;
+                padding: 10px 20px;
+                background-color: #fff;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .burger-menu {
+                display: block;
+                cursor: pointer;
+                font-size: 1.5rem;
+            }
+
+            .burger-dropdown {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+
+            .burger-dropdown.active {
+                display: block;
+            }
+
+            .burger-menu-content {
+                padding: 1rem;
+            }
+
+            .burger-menu-section h3 {
+                padding-top: 10px; /* Add padding above the Main Navigation header */
+            }
+
+            .burger-menu-items {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .burger-menu-items li {
+                padding: 10px 0;
+            }
+
+            .burger-menu-items li a {
+                text-decoration: none;
+                color: #333;
+                display: block;
+                padding: 10px;
+                transition: background-color 0.3s ease;
+            }
+
+            .burger-menu-items li a:hover {
+                background-color: #f0f0f0;
+            }
+        }
+
     </style>
 
         <!-- Structured Data -->
@@ -1303,7 +1371,7 @@
                 </div>
                 
                 <div class="industry-card">
-                    <h3>E-commerce</h>
+                    <h3>E-commerce</h3>
                     <p>Customer support, inventory management, and sales automation</p>
                 </div>
             </div>
