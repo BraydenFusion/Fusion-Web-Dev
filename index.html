@@ -469,6 +469,13 @@
             padding: 6rem 0;
         }
 
+        .features-comparison h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #272727;
+            margin-bottom: 1rem;
+        }
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -514,6 +521,13 @@
             background: white;
         }
 
+        .industry-solutions h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #232323;
+            margin-bottom: 1rem;
+        }
+
         .industry-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -522,42 +536,43 @@
         }
 
         .industry-card {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            padding: 2rem;
-            border-radius: 12px;
-            transition: transform 0.3s ease;
-        }
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow */
+}
 
-        .industry-card:hover {
-            transform: translateY(-5px);
-        }
+.industry-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
 
-        .industry-card h3 {
-            color: #333;
-            margin-bottom: 1rem;
-        }
+.industry-card h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1rem;
+}
 
-        .industry-card p {
-            color: #666;
-        }
+.industry-card p {
+    color: #666;
+    text-align: center;
+}
 
-        @media (max-width: 768px) {
-            .features-grid,
-            .industry-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+@media (max-width: 768px) {
+    .features-grid,
+    .industry-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
-
-        .benefits-section {
+.benefits-section {
     padding: 6rem 0;
     background: #f8f9fa;
 }
 
 .benefits-content {
     text-align: center;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .benefits-content h2 {
