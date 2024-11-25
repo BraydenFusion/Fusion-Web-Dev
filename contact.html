@@ -31,7 +31,7 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Montserrat', sans-serif; /* Update to Montserrat */
             line-height: 1.6;
             background-color: #f8f9fa;
         }
@@ -877,7 +877,7 @@
                                 <li><a href="coming-soon.html"><i>⚡</i>Automation</a></li>
                                 <li><a href="coming-soon.html"><i>🔄</i>Integrations</a></li>
                                 <li><a href="template.html"><i>🏛️</i>Templates</a></li>
-    
+                                <li><a href="demo.html"><i>🤖</i>Demos</a></li>
                             </ul>
                         </div>
     
@@ -920,6 +920,7 @@
                                     <li><a href="guides.html"><span>📚</span>Complete Guides</a></li>
                                     <li><a href="tutorials.html"><span>🎥</span>Video Tutorials</a></li>
                                     <li><a href="case-studies.html"><span>📊</span>Case Studies</a></li>
+                                    <li><a href="demo.html"><span>🤖</span>Request a Demo</a></li>
                                 </ul>
                             </div>
                             <div class="dropdown-content">
@@ -991,36 +992,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        document.querySelector('form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const form = event.target;
-            const formData = new FormData(form);
-            fetch(form.action, {
-                method: form.method,
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    form.reset();
-                    alert('Thank you for your message. We will get back to you soon.');
-                } else {
-                    response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            alert(data["errors"].map(error => error["message"]).join(", "));
-                        } else {
-                            alert('Oops! There was a problem submitting your form');
-                        }
-                    });
-                }
-            }).catch(error => {
-                alert('Oops! There was a problem submitting your form');
-            });
-        });
-    </script>
 
     <div class="contact-info">
         <h2>Other Ways to Connect</h2>
